@@ -209,7 +209,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 7.32
+  m_Radius: 7.7
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +371,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5075740877527910718, guid: 1621dc91efe34ac42b1d0154be3e658a, type: 3}
+      propertyPath: closestFood
+      value: 
+      objectReference: {fileID: 7545539891173908485, guid: 1f54c379950a7c24aa61350b645bb42e, type: 3}
     - target: {fileID: 6687758259670478473, guid: 1621dc91efe34ac42b1d0154be3e658a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

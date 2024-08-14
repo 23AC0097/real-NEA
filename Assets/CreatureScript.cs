@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 
 public class CreatureScript : MonoBehaviour
 {
+    private HashSet<Collider2D> _objectsInTrigger = new HashSet<Collider2D>();
     public GameObject creature;
     public float creatureSpeed = 5;
     public Rigidbody2D myRigidBody;
@@ -13,23 +14,32 @@ public class CreatureScript : MonoBehaviour
     public GameObject food;
     public Transform foodPos;
     public Vector3 foodPosition;
-    public float randomNum;
+    public float randomNum1;
+    public float randomNum2;
+    public float randomNum3;
     public float timer = 0;
     public GameObject walls;
     public float score = 0;
+    public GameObject closestFood;
+    public GameObject closestObject;
+    //public List<Collider2D> ObjectsInTrigger = new List<Collider2D>();
     // Start is called before the first frame update
     void Start()
     {
         Move();
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisioEnter2D(Collision2D collision)
     {
         Debug.Log(collision.collider.gameObject.name);
         //Causes destruction of food if contact is made
         if (collision.collider.gameObject.name == "FoodClone")
         {
+            //Destroy(collision.collider.gameObject);
             score++;
         }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
         if (collision.collider.gameObject.name == "Walls")
         {
             Move();
@@ -40,10 +50,12 @@ public class CreatureScript : MonoBehaviour
         if (collision.gameObject.name == "FoodClone")
         {
             FoodInRange = true;
+            _objectsInTrigger.Add(collision);
             //Vector3.MoveTowards(creature.transform.position, foodPos.position, creatureSpeed * Time.deltaTime);
         }
         else
         {
+
             FoodInRange = false;
         }
     }
@@ -75,8 +87,13 @@ public class CreatureScript : MonoBehaviour
         }
         if (FoodInRange == true)
         {
-            foodPosition = Vector3.MoveTowards(creature.transform.position, foodPos.position, creatureSpeed * Time.deltaTime);
-            transform.Translate(foodPosition * creatureSpeed * Time.deltaTime * -1);
+            closestObject = GetClosestObjectInTrigger();
+            transform.Translate(Vector3.zero);
+            if (closestObject != null)
+            {
+                foodPosition = Vector3.MoveTowards(creature.transform.position, GetClosestObjectInTrigger().transform.position, creatureSpeed * Time.deltaTime);
+                transform.Translate(foodPosition * creatureSpeed * Time.deltaTime);
+            }
         }
         //if (Vector3.Distance(creature.transform.position, foodPos.position) <= 6) //Finds food and moves towards it
         //{
@@ -110,23 +127,30 @@ public class CreatureScript : MonoBehaviour
     }
     private void Move() //Random movement
     {
-        randomNum = Random.Range(1, 5);
-        if (randomNum == 1)
-        {
-            myRigidBody.velocity = Vector3.up * creatureSpeed;
-        }
-        else if (randomNum == 2)
-        {
-            myRigidBody.velocity = Vector3.down * creatureSpeed;
-        }
-        else if (randomNum == 3)
-        {
-            myRigidBody.velocity = Vector3.right * creatureSpeed;
-        }
-        else if (randomNum == 4)
-        {
-            myRigidBody.velocity = Vector3.left * creatureSpeed;
-        }
+        randomNum1 = Random.Range(-100, 101);
+        randomNum2 = Random.Range(-100, 101);
+        Vector3 vector = new Vector3(randomNum1, randomNum2, 0);
+        myRigidBody.velocity = vector * creatureSpeed * Time.deltaTime;
         timer = 0;
+    }
+    private GameObject GetClosestObjectInTrigger() //Found Online!!
+    {
+        GameObject closestObject = null;
+        float closestDistanceSqr = Mathf.Infinity;
+        Vector3 currentPosition = transform.position;
+        foreach (Collider2D objectInTrigger in _objectsInTrigger)
+        {
+            if (objectInTrigger.gameObject.name == "FoodClone")
+            {
+                float sqrDistanceToObject = (objectInTrigger.transform.position - currentPosition).sqrMagnitude;
+                if (sqrDistanceToObject < closestDistanceSqr)
+                {
+                    closestDistanceSqr = sqrDistanceToObject;
+                    closestObject = objectInTrigger.gameObject;
+                }
+            }
+        }
+
+        return closestObject;
     }
 }
