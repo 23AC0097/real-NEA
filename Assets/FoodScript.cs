@@ -11,14 +11,14 @@ public class FoodScript : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //Causes destruction of food if contact is made
-        if (collision.collider.gameObject.name == "Creature")
-        {
-            Destroy(gameObject);
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    //Causes destruction of food if contact is made
+    //    if (collision.collider.gameObject.name == "Creature")
+    //        {
+    //            Destroy(gameObject);
+    //        }
+    //}
     // Update is called once per frame
     void Update()
     {
