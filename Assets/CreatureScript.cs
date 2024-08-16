@@ -7,28 +7,31 @@ using UnityEngine.UIElements;
 
 public class CreatureScript : MonoBehaviour
 {
-    public GameObject creature;
+    
     public float creatureSpeed = 5;
     public Rigidbody2D myRigidBody;
-    public bool FoodInRange = false;
+    //public bool FoodInRange = false;
     public GameObject food;
     public float randomNum1;
     public float randomNum2;
     public float timer = 0;
     public GameObject walls;
     public float score = 0;
+    public List<GameObject> ObjectsInTrigger = new List<GameObject>();
+    public float step;
     // Start is called before the first frame update
     void Start()
     {
-        Move();
+        //Move();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Causes destruction of food if contact is made
         if (collision.collider.gameObject.name == "FoodClone")
         {
-                Destroy(collision.gameObject);
-                score++;
+            Destroy(collision.gameObject);
+            score++;
+            ObjectsInTrigger.Remove(collision.collider.gameObject);
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
@@ -36,34 +39,50 @@ public class CreatureScript : MonoBehaviour
         if (collision.collider.gameObject.name == "Walls")
         {
             Move();
-            Debug.Log("Move triggered");
+            //Debug.Log("Move triggered");
         }
-        
+
     }
-    private void OnTriggerStay2D(Collider2D collision)
+        //private void OnTriggerStay2D(Collider2D collision)
+        //{
+        //    if (collision.gameObject.name == "FoodClone")
+        //    {
+        //        FoodInRange = true;
+        //    }
+        //    else
+        //    {
+        //        FoodInRange = false;
+        //    }
+        //}
+        private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "FoodClone")
         {
-            FoodInRange = true;
-        }
-        else
-        {
-            FoodInRange = false;
+           ObjectsInTrigger.Add(collision.gameObject);
         }
     }
-    
+
 
     // Update is called once per frame
     void Update()
     {
-
-        Move();
+        if (ObjectsInTrigger.Count > 0)
+        {
+            step = 5 * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, FindClosestGameObject().transform.position, step);
+        }
+        else
+        {
+            Move();
+        }
+        //Debug.Log("Moving");
+        //Move();
         
     }
     private void Move() //Random movement
     {
-        if (FoodInRange == false)
-        {
+        //transform.position = Vector3.zero;
+        
             if (timer > 2.5f)
             {
                 randomNum1 = Random.Range(-100, 101);
@@ -76,14 +95,24 @@ public class CreatureScript : MonoBehaviour
             {
                 timer += Time.deltaTime;
             }
-        }
-        if (FoodInRange == true)
+        
+    }
+
+    private GameObject FindClosestGameObject()
+    {
+        GameObject closest = ObjectsInTrigger[0];
+        float stoDistance = 0;
+        float closestDistance = 0;
+        foreach (GameObject go in ObjectsInTrigger)
         {
-            //Debug.Log("FoodInRange");
-            transform.position = Vector3.MoveTowards(transform.position, food.transform.position, creatureSpeed * Time.deltaTime) * -1;
-            //myRigidBody.velocity = vector * creatureSpeed * Time.deltaTime;
-            FoodInRange = false;
+            stoDistance = Vector3.Distance(transform.position, go.transform.position);
+            closestDistance = Vector3.Distance(transform.position, closest.transform.position);
+            if(stoDistance < closestDistance)
+            {
+                closest = go;
+            }
         }
+        return closest;
     }
     
 }
