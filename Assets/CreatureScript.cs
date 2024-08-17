@@ -7,14 +7,16 @@ using UnityEngine.UIElements;
 
 public class CreatureScript : MonoBehaviour
 {
-    
-    public float creatureSpeed = 5;
+    public float opposite = 0;
+    public float adjacent = 0;
+    public float creatureSpeed = 20;
+    public float moveTowardSpeed = 5;
     public Rigidbody2D myRigidBody;
     //public bool FoodInRange = false;
     public GameObject food;
     public float randomNum1;
     public float randomNum2;
-    public float timer = 0;
+    public float timer = 2.5f;
     public GameObject walls;
     public float score = 0;
     public List<GameObject> ObjectsInTrigger = new List<GameObject>();
@@ -22,7 +24,7 @@ public class CreatureScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Move();
+        Move();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -38,23 +40,31 @@ public class CreatureScript : MonoBehaviour
     {
         if (collision.collider.gameObject.name == "Walls")
         {
+            timer = 2.5f;
             Move();
             //Debug.Log("Move triggered");
         }
 
     }
-        //private void OnTriggerStay2D(Collider2D collision)
-        //{
-        //    if (collision.gameObject.name == "FoodClone")
-        //    {
-        //        FoodInRange = true;
-        //    }
-        //    else
-        //    {
-        //        FoodInRange = false;
-        //    }
-        //}
-        private void OnTriggerEnter2D(Collider2D collision)
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.name == "FoodClone")
+    //    {
+    //        FoodInRange = true;
+    //    }
+    //    else
+    //    {
+    //        FoodInRange = false;
+    //    }
+    //}
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "FoodClone")
+        {
+            ObjectsInTrigger.Remove(collision.gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "FoodClone")
         {
@@ -68,8 +78,9 @@ public class CreatureScript : MonoBehaviour
     {
         if (ObjectsInTrigger.Count > 0)
         {
-            step = 5 * Time.deltaTime;
+            step = moveTowardSpeed * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, FindClosestGameObject().transform.position, step);
+            
         }
         else
         {
@@ -82,20 +93,71 @@ public class CreatureScript : MonoBehaviour
     private void Move() //Random movement
     {
         //transform.position = Vector3.zero;
-        
-            if (timer > 2.5f)
+
+        if (timer > 2.5f)
+        {
+            Vector2 vector;
+            randomNum1 = Random.Range(0, 360);
+            if (randomNum1 < 90)
             {
-                randomNum1 = Random.Range(-100, 101);
-                randomNum2 = Random.Range(-100, 101);
-                Vector3 vector = new Vector3(randomNum1, randomNum2, 0);
-                myRigidBody.velocity = vector * creatureSpeed * Time.deltaTime;
-                timer = 0;
+                opposite = Mathf.Sin(randomNum1) * creatureSpeed;
+                adjacent = Mathf.Cos(randomNum1) * creatureSpeed;
+                vector = new Vector2(adjacent, opposite);
+                myRigidBody.velocity = vector * Time.deltaTime * creatureSpeed;
             }
-            else
+            if (randomNum1 > 90 && randomNum1 < 180)
             {
-                timer += Time.deltaTime;
+                randomNum1 -= 90;
+                opposite = Mathf.Sin(randomNum1) * creatureSpeed;
+                adjacent = Mathf.Cos(randomNum1) * creatureSpeed * -1;
+                vector = new Vector2(adjacent, opposite);
+                myRigidBody.velocity = vector * Time.deltaTime * creatureSpeed;
             }
-        
+            if (randomNum1 > 180 && randomNum1 < 270)
+            {
+
+                randomNum1 -= 180;
+                opposite = Mathf.Sin(randomNum1) * creatureSpeed * -1;
+                adjacent = Mathf.Cos(randomNum1) * creatureSpeed * -1;
+                vector = new Vector2(adjacent, opposite);
+                myRigidBody.velocity = vector * Time.deltaTime * creatureSpeed;
+            }
+            if (randomNum1 > 270)
+            {
+
+                randomNum1 -= 270;
+                opposite = Mathf.Sin(randomNum1) * creatureSpeed * -1;
+                adjacent = Mathf.Cos(randomNum1) * creatureSpeed;
+                vector = new Vector2(adjacent, opposite);
+                myRigidBody.velocity = vector * Time.deltaTime * creatureSpeed;
+            }
+            if (randomNum1 == 0)
+            {
+                myRigidBody.velocity = Vector2.up;
+            }
+            if (randomNum1 == 90)
+            {
+                myRigidBody.velocity = Vector2.left;
+            }
+            if (randomNum1 == 180)
+            {
+                myRigidBody.velocity = Vector2.down;
+            }
+            if (randomNum1 == 270)
+            {
+                myRigidBody.velocity = Vector2.right;
+            }
+            //randomNum1 = Random.Range(-100, 101);
+            //randomNum2 = Random.Range(-100, 101);
+            timer = 0;
+        }
+
+        else
+        {
+            
+            timer += Time.deltaTime;
+        }
+
     }
 
     private GameObject FindClosestGameObject()
