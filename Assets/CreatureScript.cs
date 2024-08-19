@@ -7,6 +7,8 @@ using UnityEngine.UIElements;
 
 public class CreatureScript : MonoBehaviour
 {
+    Vector2 randomVector;
+    public float variation = 3;
     public float opposite = 0;
     public float adjacent = 0;
     public float creatureSpeed = 20;
@@ -85,78 +87,116 @@ public class CreatureScript : MonoBehaviour
         else
         {
             Move();
+            
         }
         //Debug.Log("Moving");
         //Move();
         
     }
+    private Vector2 FindRandomPoint()
+    {
+        float highestPoint = 0;
+        float lowestPoint = 0;
+        float leftestPoint = 0;
+        float rightestPoint = 0;
+        Vector2 vector = new Vector2(Random.Range(leftestPoint, rightestPoint), Random.Range(lowestPoint, highestPoint));
+        while (Vector2.Distance(vector, transform.position) < 2)
+        {
+            highestPoint = variation;
+            lowestPoint = -variation;
+            leftestPoint = +(variation * 2);
+            rightestPoint = -(variation * 2);
+            float randomX = Random.Range(leftestPoint, rightestPoint);
+            float randomY = Random.Range(lowestPoint, highestPoint);
+            vector = new Vector2(randomX, randomY);
+        }
+        return vector;
+    } 
     private void Move() //Random movement
     {
-        //transform.position = Vector3.zero;
-
+        step = moveTowardSpeed * Time.deltaTime;
         if (timer > 2.5f)
         {
-            Vector2 vector;
-            randomNum1 = Random.Range(0, 360);
-            if (randomNum1 < 90)
-            {
-                opposite = Mathf.Sin(randomNum1) * creatureSpeed;
-                adjacent = Mathf.Cos(randomNum1) * creatureSpeed;
-                vector = new Vector2(adjacent, opposite);
-                myRigidBody.velocity = vector * Time.deltaTime * creatureSpeed;
-            }
-            if (randomNum1 > 90 && randomNum1 < 180)
-            {
-                randomNum1 -= 90;
-                opposite = Mathf.Sin(randomNum1) * creatureSpeed;
-                adjacent = Mathf.Cos(randomNum1) * creatureSpeed * -1;
-                vector = new Vector2(adjacent, opposite);
-                myRigidBody.velocity = vector * Time.deltaTime * creatureSpeed;
-            }
-            if (randomNum1 > 180 && randomNum1 < 270)
-            {
-
-                randomNum1 -= 180;
-                opposite = Mathf.Sin(randomNum1) * creatureSpeed * -1;
-                adjacent = Mathf.Cos(randomNum1) * creatureSpeed * -1;
-                vector = new Vector2(adjacent, opposite);
-                myRigidBody.velocity = vector * Time.deltaTime * creatureSpeed;
-            }
-            if (randomNum1 > 270)
-            {
-
-                randomNum1 -= 270;
-                opposite = Mathf.Sin(randomNum1) * creatureSpeed * -1;
-                adjacent = Mathf.Cos(randomNum1) * creatureSpeed;
-                vector = new Vector2(adjacent, opposite);
-                myRigidBody.velocity = vector * Time.deltaTime * creatureSpeed;
-            }
-            if (randomNum1 == 0)
-            {
-                myRigidBody.velocity = Vector2.up;
-            }
-            if (randomNum1 == 90)
-            {
-                myRigidBody.velocity = Vector2.left;
-            }
-            if (randomNum1 == 180)
-            {
-                myRigidBody.velocity = Vector2.down;
-            }
-            if (randomNum1 == 270)
-            {
-                myRigidBody.velocity = Vector2.right;
-            }
-            //randomNum1 = Random.Range(-100, 101);
-            //randomNum2 = Random.Range(-100, 101);
+            randomVector = FindRandomPoint();
+            //Debug.Log(randomVector);
             timer = 0;
         }
-
-        else
+        else if (Vector2.Distance(transform.position, randomVector) < 0.01f)
         {
-            
-            timer += Time.deltaTime;
+            randomVector = FindRandomPoint();
+            //Debug.Log(randomVector);
+            timer = 0;
         }
+        //Debug.Log(randomVector);
+        transform.position = Vector2.MoveTowards(transform.position, randomVector, step);
+        timer += Time.deltaTime;
+        
+        
+        //transform.position = Vector3.zero;
+
+        //if (timer > 2.5f)
+        //{
+        //    Vector2 vector;
+        //    randomNum1 = Random.Range(0, 360);
+        //    if (randomNum1 < 90)
+        //    {
+        //        opposite = Mathf.Sin(randomNum1) * creatureSpeed;
+        //        adjacent = Mathf.Cos(randomNum1) * creatureSpeed;
+        //        vector = new Vector2(adjacent, opposite);
+        //        myRigidBody.velocity = vector * Time.deltaTime * creatureSpeed;
+        //    }
+        //    if (randomNum1 > 90 && randomNum1 < 180)
+        //    {
+        //        randomNum1 -= 90;
+        //        opposite = Mathf.Sin(randomNum1) * creatureSpeed;
+        //        adjacent = Mathf.Cos(randomNum1) * creatureSpeed * -1;
+        //        vector = new Vector2(adjacent, opposite);
+        //        myRigidBody.velocity = vector * Time.deltaTime * creatureSpeed;
+        //    }
+        //    if (randomNum1 > 180 && randomNum1 < 270)
+        //    {
+
+        //        randomNum1 -= 180;
+        //        opposite = Mathf.Sin(randomNum1) * creatureSpeed * -1;
+        //        adjacent = Mathf.Cos(randomNum1) * creatureSpeed * -1;
+        //        vector = new Vector2(adjacent, opposite);
+        //        myRigidBody.velocity = vector * Time.deltaTime * creatureSpeed;
+        //    }
+        //    if (randomNum1 > 270)
+        //    {
+
+        //        randomNum1 -= 270;
+        //        opposite = Mathf.Sin(randomNum1) * creatureSpeed * -1;
+        //        adjacent = Mathf.Cos(randomNum1) * creatureSpeed;
+        //        vector = new Vector2(adjacent, opposite);
+        //        myRigidBody.velocity = vector * Time.deltaTime * creatureSpeed;
+        //    }
+        //    if (randomNum1 == 0)
+        //    {
+        //        myRigidBody.velocity = Vector2.up;
+        //    }
+        //    if (randomNum1 == 90)
+        //    {
+        //        myRigidBody.velocity = Vector2.left;
+        //    }
+        //    if (randomNum1 == 180)
+        //    {
+        //        myRigidBody.velocity = Vector2.down;
+        //    }
+        //    if (randomNum1 == 270)
+        //    {
+        //        myRigidBody.velocity = Vector2.right;
+        //    }
+        //randomNum1 = Random.Range(-100, 101);
+        //randomNum2 = Random.Range(-100, 101);
+        //timer = 0;
+        //}
+
+        //else
+        //{
+
+        //    timer += Time.deltaTime;
+        //}
 
     }
 
