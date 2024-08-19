@@ -20,7 +20,7 @@ public class CreatureScript : MonoBehaviour
     public float randomNum2;
     public float timer = 2.5f;
     public GameObject walls;
-    public float score = 0;
+    public float score = 5;
     public List<GameObject> ObjectsInTrigger = new List<GameObject>();
     public float step;
     // Start is called before the first frame update
@@ -88,6 +88,11 @@ public class CreatureScript : MonoBehaviour
         {
             Move();
             
+        }
+        score -= 0.00125f;
+        if (score < 0)
+        {
+            Destroy(gameObject);
         }
         //Debug.Log("Moving");
         //Move();

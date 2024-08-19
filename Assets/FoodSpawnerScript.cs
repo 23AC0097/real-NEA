@@ -8,6 +8,8 @@ public class FoodSpawnerScript : MonoBehaviour
     public float spawnrate = 6;
     public float timer = 0;
     public float variation = 3;
+    public float gameTimer = 60;
+    public float secondTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +19,24 @@ public class FoodSpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer > spawnrate)
+        if (gameTimer > 0)
         {
-            SpawnFood();
+            if (timer > spawnrate)
+            {
+                SpawnFood();
+            }
+            timer += Time.deltaTime;
+            if (secondTimer > 1)
+            {
+                secondTimer = 0;
+                gameTimer--;
+            }
+            else
+            {
+                secondTimer = secondTimer + Time.deltaTime;
+            }
         }
-        timer += Time.deltaTime;
+        
     }
     private void SpawnFood()
     {
