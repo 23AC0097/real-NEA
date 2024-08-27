@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1366161466664293356}
   - component: {fileID: 4397297122938946973}
   - component: {fileID: 5075740877527910718}
+  - component: {fileID: 2622669848577909300}
   m_Layer: 0
   m_Name: Creature
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8947865182777384547}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.07, y: 4.16, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -161,13 +162,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 592407a0d28f7b642a449479def37985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creature: {fileID: 8947865182777384547}
-  creatureSpeed: 5
+  variation: 3
+  opposite: 0
+  adjacent: 0
+  creatureSpeed: 20
+  moveTowardSpeed: 5
   myRigidBody: {fileID: 1366161466664293356}
-  FoodInRange: 0
   food: {fileID: 7545539891173908485, guid: 1f54c379950a7c24aa61350b645bb42e, type: 3}
-  foodPos: {fileID: 3880977455168607343, guid: 1f54c379950a7c24aa61350b645bb42e, type: 3}
-  foodPosition: {x: 0, y: 0, z: 0}
-  randomNum: 0
+  randomNum1: 0
+  randomNum2: 0
   timer: 0
   walls: {fileID: 1382824205366124652, guid: e16de5a7b2006994d9200b706139b33f, type: 3}
+  score: 5
+  ObjectsInTrigger: []
+  step: 0
+--- !u!58 &2622669848577909300
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8947865182777384547}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 10

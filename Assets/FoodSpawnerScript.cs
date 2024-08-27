@@ -14,27 +14,23 @@ public class FoodSpawnerScript : MonoBehaviour
     void Start()
     {
         SpawnFood();
+        SpawnFood();
+        SpawnFood();
+        SpawnFood();
+        SpawnFood();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameTimer > 0)
+        if (timer > spawnrate)
         {
-            if (timer > spawnrate)
-            {
-                SpawnFood();
-            }
+            SpawnFood();
+            timer = 0;
+        }
+        else
+        {
             timer += Time.deltaTime;
-            if (secondTimer > 1)
-            {
-                secondTimer = 0;
-                gameTimer--;
-            }
-            else
-            {
-                secondTimer = secondTimer + Time.deltaTime;
-            }
         }
         
     }
