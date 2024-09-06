@@ -7,12 +7,12 @@ public class GameTimerScript : MonoBehaviour
     public List<GameObject> creatures;
     public List<GameObject> food;
     public bool gameOver = false;
-    public float gameTimer = 60;
+    public float overallGameTimer = 60;
     public float secondTimer = 0;
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<Renderer>().enabled = false;
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -42,14 +42,14 @@ public class GameTimerScript : MonoBehaviour
     {
         if (creatures.Count == 0)
         {
-            if (gameTimer > 58)
+            if (overallGameTimer > 58)
             {
                 gameOver = true;
             }
             
             
         }
-        if (gameTimer < 0)
+        if (overallGameTimer < 0)
         {
             gameOver = true;
         }
@@ -58,7 +58,7 @@ public class GameTimerScript : MonoBehaviour
             if (secondTimer > 1)
             {
                 secondTimer = 0;
-                gameTimer--;
+                overallGameTimer--;
             }
             else
             {
@@ -67,8 +67,8 @@ public class GameTimerScript : MonoBehaviour
         }
         if (gameOver)
         {
-            gameObject.GetComponent<Renderer>().enabled = true;
-            Debug.Log("GAME OVER!");
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            //Debug.Log("GAME OVER!");
             foreach (GameObject obj in creatures)
             {
                 Destroy(obj);

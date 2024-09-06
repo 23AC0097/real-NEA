@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class FoodSpawnerScript : MonoBehaviour
 {
+    public GameTimerScript gameTimer;
     public GameObject Food;
     public float spawnrate = 6;
     public float timer = 0;
     public float variation = 3;
-    public float gameTimer = 60;
     public float secondTimer;
     // Start is called before the first frame update
     void Start()
@@ -23,14 +23,18 @@ public class FoodSpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer > spawnrate)
+        //gameTimer = GetComponent<GameTimerScript>();
+        if (!gameTimer.gameOver)
         {
-            SpawnFood();
-            timer = 0;
-        }
-        else
-        {
-            timer += Time.deltaTime;
+            if (timer > spawnrate)
+            {
+                SpawnFood();
+                timer = 0;
+            }
+            else
+            {
+                timer += Time.deltaTime;
+            }
         }
         
     }

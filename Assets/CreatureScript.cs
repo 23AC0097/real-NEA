@@ -7,8 +7,10 @@ using UnityEngine.UIElements;
 
 public class CreatureScript : MonoBehaviour
 {
+    public GameObject Creature;
+    public float reproTimer;
     Vector2 randomVector;
-    public float variation = 3;
+    public float variation = 5;
     public float opposite = 0;
     public float adjacent = 0;
     public float creatureSpeed = 20;
@@ -22,6 +24,7 @@ public class CreatureScript : MonoBehaviour
     public GameObject walls;
     public float score = 5;
     public List<GameObject> ObjectsInTrigger = new List<GameObject>();
+    public List<GameObject> ObjectsInCollider = new List<GameObject>();
     public float step;
     // Start is called before the first frame update
     void Start()
@@ -37,10 +40,12 @@ public class CreatureScript : MonoBehaviour
             score++;
             ObjectsInTrigger.Remove(collision.collider.gameObject);
         }
+        
     }
+    
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.collider.gameObject.name == "Walls")
+        if (collision.collider.gameObject.name == "CreatureClone")
         {
             timer = 2.5f;
             Move();
@@ -65,6 +70,10 @@ public class CreatureScript : MonoBehaviour
         {
             ObjectsInTrigger.Remove(collision.gameObject);
         }
+        if (collision.gameObject.name == "CreatureClone")
+        {
+            ObjectsInCollider.Remove(collision.gameObject);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -72,18 +81,29 @@ public class CreatureScript : MonoBehaviour
         {
            ObjectsInTrigger.Add(collision.gameObject);
         }
+
+        if (collision.gameObject.name == "CreatureClone")
+        {
+            ObjectsInCollider.Add(collision.gameObject);
+        }
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        
         if (ObjectsInTrigger.Count > 0)
         {
             step = moveTowardSpeed * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, FindClosestGameObject().transform.position, step);
-            
+
         }
+        //else if (ObjectsInCollider.Count > 0)
+        //{
+        //    step = moveTowardSpeed * Time.deltaTime;
+        //    transform.position = Vector2.MoveTowards(transform.position, FindClosestCreature().transform.position, step * -1);
+        //}
         else
         {
             Move();
@@ -94,6 +114,18 @@ public class CreatureScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (reproTimer > 15 && score > 10)
+        {
+            reproTimer = 0;
+            float highestPoint = transform.position.y + variation;
+            float lowestPoint = transform.position.y - variation;
+            float leftestPoint = transform.position.x + (variation * 2);
+            float rightestPoint = transform.position.x - (variation * 2);
+            GameObject CreatureClone = Instantiate(Creature, new Vector3(UnityEngine.Random.Range(rightestPoint, leftestPoint), UnityEngine.Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+            CreatureClone.name = "CreatureClone";
+            score -= 5;
+        }
+        reproTimer += Time.deltaTime;
         //Debug.Log("Moving");
         //Move();
         
@@ -215,6 +247,22 @@ public class CreatureScript : MonoBehaviour
             stoDistance = Vector3.Distance(transform.position, go.transform.position);
             closestDistance = Vector3.Distance(transform.position, closest.transform.position);
             if(stoDistance < closestDistance)
+            {
+                closest = go;
+            }
+        }
+        return closest;
+    }
+    private GameObject FindClosestCreature()
+    {
+        GameObject closest = ObjectsInCollider[0];
+        float stoDistance = 0;
+        float closestDistance = 0;
+        foreach (GameObject go in ObjectsInCollider)
+        {
+            stoDistance = Vector3.Distance(transform.position, go.transform.position);
+            closestDistance = Vector3.Distance(transform.position, closest.transform.position);
+            if (stoDistance < closestDistance)
             {
                 closest = go;
             }

@@ -162,7 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 592407a0d28f7b642a449479def37985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  variation: 3
+  Creature: {fileID: 8947865182777384547}
+  reproTimer: 0
+  variation: 5
   opposite: 0
   adjacent: 0
   creatureSpeed: 20
@@ -175,6 +177,7 @@ MonoBehaviour:
   walls: {fileID: 1382824205366124652, guid: e16de5a7b2006994d9200b706139b33f, type: 3}
   score: 5
   ObjectsInTrigger: []
+  ObjectsInCollider: []
   step: 0
 --- !u!58 &2622669848577909300
 CircleCollider2D:
