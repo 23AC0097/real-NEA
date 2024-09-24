@@ -366,6 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Creature: {fileID: 8947865182777384547, guid: 1621dc91efe34ac42b1d0154be3e658a, type: 3}
+  creatureScript: {fileID: 5075740877527910718, guid: 1621dc91efe34ac42b1d0154be3e658a, type: 3}
   spawnrate: 6
   timer: 0
   variation: 12
