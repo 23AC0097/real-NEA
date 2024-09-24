@@ -9,7 +9,7 @@ public class CreatureScript : MonoBehaviour
 {
     public GameObject Creature;
     public float reproTimer;
-    Vector2 randomVector;
+    public Vector2 randomVector;
     public float variation = 5;
     public float opposite = 0;
     public float adjacent = 0;
@@ -126,9 +126,7 @@ public class CreatureScript : MonoBehaviour
             score -= 5;
         }
         reproTimer += Time.deltaTime;
-        //Debug.Log("Moving");
-        //Move();
-        
+
     }
     private Vector2 FindRandomPoint()
     {
@@ -152,7 +150,7 @@ public class CreatureScript : MonoBehaviour
     private void Move() //Random movement
     {
         step = moveTowardSpeed * Time.deltaTime;
-        if (timer > 2.5f)
+        if (timer > 5f || (transform.position.x == randomVector.x && transform.position.y == randomVector.y))
         {
             randomVector = FindRandomPoint();
             //Debug.Log(randomVector);
@@ -169,71 +167,7 @@ public class CreatureScript : MonoBehaviour
         timer += Time.deltaTime;
         
         
-        //transform.position = Vector3.zero;
-
-        //if (timer > 2.5f)
-        //{
-        //    Vector2 vector;
-        //    randomNum1 = Random.Range(0, 360);
-        //    if (randomNum1 < 90)
-        //    {
-        //        opposite = Mathf.Sin(randomNum1) * creatureSpeed;
-        //        adjacent = Mathf.Cos(randomNum1) * creatureSpeed;
-        //        vector = new Vector2(adjacent, opposite);
-        //        myRigidBody.velocity = vector * Time.deltaTime * creatureSpeed;
-        //    }
-        //    if (randomNum1 > 90 && randomNum1 < 180)
-        //    {
-        //        randomNum1 -= 90;
-        //        opposite = Mathf.Sin(randomNum1) * creatureSpeed;
-        //        adjacent = Mathf.Cos(randomNum1) * creatureSpeed * -1;
-        //        vector = new Vector2(adjacent, opposite);
-        //        myRigidBody.velocity = vector * Time.deltaTime * creatureSpeed;
-        //    }
-        //    if (randomNum1 > 180 && randomNum1 < 270)
-        //    {
-
-        //        randomNum1 -= 180;
-        //        opposite = Mathf.Sin(randomNum1) * creatureSpeed * -1;
-        //        adjacent = Mathf.Cos(randomNum1) * creatureSpeed * -1;
-        //        vector = new Vector2(adjacent, opposite);
-        //        myRigidBody.velocity = vector * Time.deltaTime * creatureSpeed;
-        //    }
-        //    if (randomNum1 > 270)
-        //    {
-
-        //        randomNum1 -= 270;
-        //        opposite = Mathf.Sin(randomNum1) * creatureSpeed * -1;
-        //        adjacent = Mathf.Cos(randomNum1) * creatureSpeed;
-        //        vector = new Vector2(adjacent, opposite);
-        //        myRigidBody.velocity = vector * Time.deltaTime * creatureSpeed;
-        //    }
-        //    if (randomNum1 == 0)
-        //    {
-        //        myRigidBody.velocity = Vector2.up;
-        //    }
-        //    if (randomNum1 == 90)
-        //    {
-        //        myRigidBody.velocity = Vector2.left;
-        //    }
-        //    if (randomNum1 == 180)
-        //    {
-        //        myRigidBody.velocity = Vector2.down;
-        //    }
-        //    if (randomNum1 == 270)
-        //    {
-        //        myRigidBody.velocity = Vector2.right;
-        //    }
-        //randomNum1 = Random.Range(-100, 101);
-        //randomNum2 = Random.Range(-100, 101);
-        //timer = 0;
-        //}
-
-        //else
-        //{
-
-        //    timer += Time.deltaTime;
-        //}
+        
 
     }
 
@@ -253,21 +187,21 @@ public class CreatureScript : MonoBehaviour
         }
         return closest;
     }
-    private GameObject FindClosestCreature()
-    {
-        GameObject closest = ObjectsInCollider[0];
-        float stoDistance = 0;
-        float closestDistance = 0;
-        foreach (GameObject go in ObjectsInCollider)
-        {
-            stoDistance = Vector3.Distance(transform.position, go.transform.position);
-            closestDistance = Vector3.Distance(transform.position, closest.transform.position);
-            if (stoDistance < closestDistance)
-            {
-                closest = go;
-            }
-        }
-        return closest;
-    }
+    //private GameObject FindClosestCreature()
+    //{
+    //    GameObject closest = ObjectsInCollider[0];
+    //    float stoDistance = 0;
+    //    float closestDistance = 0;
+    //    foreach (GameObject go in ObjectsInCollider)
+    //    {
+    //        stoDistance = Vector3.Distance(transform.position, go.transform.position);
+    //        closestDistance = Vector3.Distance(transform.position, closest.transform.position);
+    //        if (stoDistance < closestDistance)
+    //        {
+    //            closest = go;
+    //        }
+    //    }
+    //    return closest;
+    //}
     
 }

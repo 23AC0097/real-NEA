@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CreatureSpawnerScript : MonoBehaviour
 {
     public GameObject Creature;
+    public CreatureScript creatureScript;
     public float spawnrate = 6;
     public float timer = 0;
     public float variation = 3;
@@ -25,6 +27,16 @@ public class CreatureSpawnerScript : MonoBehaviour
         
     }
     private void SpawnCreature()
+    {
+        float highestPoint = transform.position.y + variation;
+        float lowestPoint = transform.position.y - variation;
+        float leftestPoint = transform.position.x + (variation * 2);
+        float rightestPoint = transform.position.x - (variation * 2);
+        GameObject CreatureClone = Instantiate(Creature, new Vector3(UnityEngine.Random.Range(rightestPoint, leftestPoint), UnityEngine.Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+        CreatureClone.name = "CreatureClone";
+        timer = 0;
+    }
+    public void SpawnRandomCreature()
     {
         float highestPoint = transform.position.y + variation;
         float lowestPoint = transform.position.y - variation;

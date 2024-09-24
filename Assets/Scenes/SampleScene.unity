@@ -155,7 +155,7 @@ MonoBehaviour:
   Food: {fileID: 7545539891173908485, guid: 1f54c379950a7c24aa61350b645bb42e, type: 3}
   spawnrate: 0.5
   timer: 0
-  variation: 3
+  variation: 12
   secondTimer: 0
 --- !u!4 &242095835
 Transform:
@@ -301,7 +301,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -368,7 +368,7 @@ MonoBehaviour:
   Creature: {fileID: 8947865182777384547, guid: 1621dc91efe34ac42b1d0154be3e658a, type: 3}
   spawnrate: 6
   timer: 0
-  variation: 3
+  variation: 12
   gameTimer: 60
   secondTimer: 0
 --- !u!4 &2028232395

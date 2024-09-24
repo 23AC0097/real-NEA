@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\projects\\NEAProj\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\gametimerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\gametimerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|c:\\projects\\neaproj\\assets\\creaturescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\creaturescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\creaturespawnerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\creaturespawnerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\foodspawnerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\foodspawnerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\foodscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\foodscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|c:\\projects\\neaproj\\assets\\creaturescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\creaturescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\creaturespawnerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\creaturespawnerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\gametimerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\gametimerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\foodscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\foodscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,36 +30,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "CreatureSpawnerScript.cs",
               "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\CreatureSpawnerScript.cs",
               "RelativeDocumentMoniker": "Assets\\CreatureSpawnerScript.cs",
               "ToolTip": "C:\\projects\\NEAProj\\Assets\\CreatureSpawnerScript.cs",
               "RelativeToolTip": "Assets\\CreatureSpawnerScript.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAzwCAAAADJAAAA",
+              "ViewState": "AQIAACQAAAAAAAAAAAAuwC0AAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T10:58:43.422Z"
+              "WhenOpened": "2024-08-27T10:58:43.422Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "GameTimerScript.cs",
               "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\GameTimerScript.cs",
               "RelativeDocumentMoniker": "Assets\\GameTimerScript.cs",
               "ToolTip": "C:\\projects\\NEAProj\\Assets\\GameTimerScript.cs",
               "RelativeToolTip": "Assets\\GameTimerScript.cs",
-              "ViewState": "AQIAADwAAAAAAAAAAAAawEYAAAAmAAAA",
+              "ViewState": "AQIAACsAAAAAAAAAAAAawEsAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-19T14:37:58.467Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "FoodScript.cs",
               "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\FoodScript.cs",
               "RelativeDocumentMoniker": "Assets\\FoodScript.cs",
@@ -72,26 +73,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "FoodSpawnerScript.cs",
               "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\FoodSpawnerScript.cs",
               "RelativeDocumentMoniker": "Assets\\FoodSpawnerScript.cs",
               "ToolTip": "C:\\projects\\NEAProj\\Assets\\FoodSpawnerScript.cs",
               "RelativeToolTip": "Assets\\FoodSpawnerScript.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAYwCoAAAAIAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAYwCoAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-22T08:27:44.21Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CreatureScript.cs",
               "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\CreatureScript.cs",
               "RelativeDocumentMoniker": "Assets\\CreatureScript.cs",
               "ToolTip": "C:\\projects\\NEAProj\\Assets\\CreatureScript.cs",
               "RelativeToolTip": "Assets\\CreatureScript.cs",
-              "ViewState": "AQIAAGsAAAAAAAAAAAAswH0AAAAXAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAALQAAABWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-22T08:19:22.631Z",
               "EditorCaption": ""
