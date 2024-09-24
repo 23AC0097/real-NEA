@@ -44,7 +44,6 @@ public class CreatureSpawnerScript : MonoBehaviour
         float rightestPoint = transform.position.x - (variation * 2);
         GameObject CreatureClone = Instantiate(Creature, new Vector3(UnityEngine.Random.Range(rightestPoint, leftestPoint), UnityEngine.Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
         CreatureClone.name = "CreatureClone";
-        CreatureClone
         timer = 0;
     }
 }
