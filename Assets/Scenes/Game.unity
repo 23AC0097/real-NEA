@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameTimer: {fileID: 436594616}
+  uiScript: {fileID: 0}
+  firstGameStart: 0
   Food: {fileID: 7545539891173908485, guid: 1f54c379950a7c24aa61350b645bb42e, type: 3}
   spawnrate: 0.5
   timer: 0
@@ -367,6 +369,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Creature: {fileID: 8947865182777384547, guid: 1621dc91efe34ac42b1d0154be3e658a, type: 3}
   creatureScript: {fileID: 5075740877527910718, guid: 1621dc91efe34ac42b1d0154be3e658a, type: 3}
+  uiScript: {fileID: 0}
+  firstGameStart: 0
   spawnrate: 6
   timer: 0
   variation: 12

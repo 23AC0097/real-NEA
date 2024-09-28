@@ -7,6 +7,8 @@ public class CreatureSpawnerScript : MonoBehaviour
 {
     public GameObject Creature;
     public CreatureScript creatureScript;
+    public UIScript uiScript;
+    public bool firstGameStart;
     public float spawnrate = 6;
     public float timer = 0;
     public float variation = 3;
@@ -24,7 +26,7 @@ public class CreatureSpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void SpawnCreature()
     {

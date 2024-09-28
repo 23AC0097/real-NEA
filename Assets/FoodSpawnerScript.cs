@@ -5,6 +5,8 @@ using UnityEngine;
 public class FoodSpawnerScript : MonoBehaviour
 {
     public GameTimerScript gameTimer;
+    public UIScript uiScript;
+    public bool firstGameStart;
     public GameObject Food;
     public float spawnrate = 6;
     public float timer = 0;
@@ -23,19 +25,23 @@ public class FoodSpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //gameTimer = GetComponent<GameTimerScript>();
-        if (!gameTimer.gameOver)
-        {
-            if (timer > spawnrate)
+        
+            
+            //gameTimer = GetComponent<GameTimerScript>();
+            if (!gameTimer.gameOver)
             {
-                SpawnFood();
-                timer = 0;
+                if (timer > spawnrate)
+                {
+                    SpawnFood();
+                    timer = 0;
+                }
+                else
+                {
+                    timer += Time.deltaTime;
+                }
             }
-            else
-            {
-                timer += Time.deltaTime;
-            }
-        }
+        
+        
         
     }
     private void SpawnFood()

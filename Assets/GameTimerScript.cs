@@ -42,7 +42,7 @@ public class GameTimerScript : MonoBehaviour
     {
         if (creatures.Count == 0)
         {
-            if (overallGameTimer > 58)
+            if (overallGameTimer < 58)
             {
                 gameOver = true;
             }

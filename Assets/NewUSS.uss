@@ -1,0 +1,20 @@
+.styleClassName {
+}
+
+.styleClassName:hover {
+    background-color: rgba(255, 68, 68, 0);
+    transform-origin: center;
+    scale: 1.5 1.5;
+}
+
+.unity-text-element {
+}
+
+.unity-button {
+}
+
+Button.yellow:hover {
+}
+
+Button1.yellow:hover {
+}
