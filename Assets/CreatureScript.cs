@@ -7,29 +7,34 @@ using UnityEngine.UIElements;
 
 public class CreatureScript : MonoBehaviour
 {
+    public SpriteRenderer spriteRenderer;
+    public CircleCollider2D eyesight;
     public GameObject Creature;
     public float reproTimer;
     public Vector2 randomVector;
     public float variation = 5;
     public float opposite = 0;
     public float adjacent = 0;
-    public float creatureSpeed = 20;
-    public float moveTowardSpeed = 5;
+    public float moveTowardSpeed;
     public Rigidbody2D myRigidBody;
     //public bool FoodInRange = false;
     public GameObject food;
     public float randomNum1;
     public float randomNum2;
     public float timer = 2.5f;
-    public GameObject walls;
     public float score = 5;
     public List<GameObject> ObjectsInTrigger = new List<GameObject>();
     public List<GameObject> ObjectsInCollider = new List<GameObject>();
     public float step;
+    public float creatureSize;
     // Start is called before the first frame update
     void Start()
     {
         Move();
+        creatureSize = 0.25f;
+        transform.localScale = new Vector2(creatureSize,creatureSize);
+        eyesight.radius = 10 + (creatureSize/2);
+        moveTowardSpeed = 20;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -124,6 +129,18 @@ public class CreatureScript : MonoBehaviour
             GameObject CreatureClone = Instantiate(Creature, new Vector3(UnityEngine.Random.Range(rightestPoint, leftestPoint), UnityEngine.Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
             CreatureClone.name = "CreatureClone";
             score -= 5;
+        }
+        if (score < 2.5f)
+        {
+            spriteRenderer.color = new Color32(88, 54, 54, 255);
+        }
+        else if (score >= 10)
+        {
+            spriteRenderer.color = new Color32(255, 227, 227, 255);
+        }
+        else if (score < 10 && score >= 2.5f)
+        {
+            spriteRenderer.color = new Color32(180, 109, 109, 255);
         }
         reproTimer += Time.deltaTime;
 

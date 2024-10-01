@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3880977455168607343}
   - component: {fileID: 3881284004775996491}
   - component: {fileID: 6673915146608843047}
-  - component: {fileID: 1945988462224055149}
   - component: {fileID: 2015970354019526946}
+  - component: {fileID: -5879868958850988774}
   m_Layer: 0
   m_Name: Food
   m_TagString: Untagged
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3677dfde80dfe4543a3211fbb78f487d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7a11c45bd006df14393d532c81aa236a, type: 3}
+  m_Color: {r: 0.47833845, g: 0.5597484, b: 0.37492576, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -114,8 +114,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &1945988462224055149
-CircleCollider2D:
+--- !u!114 &2015970354019526946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545539891173908485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0846069c2df23949b68a27398cad264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  food: {fileID: 7545539891173908485}
+  creature: {fileID: 8947865182777384547, guid: 1621dc91efe34ac42b1d0154be3e658a, type: 3}
+--- !u!60 &-5879868958850988774
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -147,19 +161,35 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.75
---- !u!114 &2015970354019526946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7545539891173908485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0846069c2df23949b68a27398cad264, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  food: {fileID: 7545539891173908485}
-  creature: {fileID: 8947865182777384547, guid: 1621dc91efe34ac42b1d0154be3e658a, type: 3}
+  m_SpriteTilingProperty:
+    border: {x: 1.28, y: 1.28, z: 1.28, w: 1.28}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.5, y: 5.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.4373322, y: 1.9976921}
+      - {x: 1.4499999, y: 2.56}
+      - {x: -1.4399999, y: 2.56}
+      - {x: -1.4447116, y: 1.9852142}
+      - {x: -1.9751993, y: 1.9954916}
+      - {x: -1.9922669, y: 1.440593}
+      - {x: -2.56, y: 1.4399999}
+      - {x: -2.56, y: -1.4599999}
+      - {x: -2.0043912, y: -1.438524}
+      - {x: -2.0329728, y: -1.9995773}
+      - {x: -1.4648881, y: -2.043606}
+      - {x: -1.4937679, y: -2.56}
+      - {x: 1.4613005, y: -2.56}
+      - {x: 1.438524, y: -2.035325}
+      - {x: 2.0262291, y: -2.035016}
+      - {x: 2.010707, y: -1.467234}
+      - {x: 2.56, y: -1.5}
+      - {x: 2.5467145, y: 1.4334579}
+      - {x: 2.030961, y: 1.463412}
+      - {x: 2.0341058, y: 1.99}
+  m_UseDelaunayMesh: 0

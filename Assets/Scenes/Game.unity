@@ -278,7 +278,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.68529713, g: 0.9685534, b: 0.7457829, a: 0}
+  m_BackGroundColor: {r: 0.85648173, g: 1, b: 0.66981125, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -368,7 +368,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Creature: {fileID: 8947865182777384547, guid: 1621dc91efe34ac42b1d0154be3e658a, type: 3}
-  creatureScript: {fileID: 5075740877527910718, guid: 1621dc91efe34ac42b1d0154be3e658a, type: 3}
   uiScript: {fileID: 0}
   firstGameStart: 0
   spawnrate: 6
