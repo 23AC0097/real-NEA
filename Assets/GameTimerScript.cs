@@ -36,7 +36,14 @@ public class GameTimerScript : MonoBehaviour
             food.Remove(collision.gameObject);
         }
     }
-
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (gameOver)
+        {
+            Destroy(collision.gameObject);
+        }
+        
+    }
     // Update is called once per frame
     void Update()
     {
@@ -68,15 +75,7 @@ public class GameTimerScript : MonoBehaviour
         if (gameOver)
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
-            //Debug.Log("GAME OVER!");
-            foreach (GameObject obj in creatures)
-            {
-                Destroy(obj);
-            }
-            foreach (GameObject obj in food)
-            {
-                Destroy(obj);
-            }
+            
         }
     }
 }

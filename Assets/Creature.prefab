@@ -127,14 +127,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 592407a0d28f7b642a449479def37985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dead: 0
+  vector: {x: 0, y: 0}
+  lowestPoint: 0
+  highestPoint: 0
+  leftestPoint: 0
+  rightestPoint: 0
   spriteRenderer: {fileID: 2805920558596675674}
   eyesight: {fileID: 2622669848577909300}
   Creature: {fileID: 8947865182777384547}
   reproTimer: 0
   randomVector: {x: 0, y: 0}
-  variation: 12
-  opposite: 0
-  adjacent: 0
+  variation: 10
   moveTowardSpeed: 10
   myRigidBody: {fileID: 1366161466664293356}
   food: {fileID: 7545539891173908485, guid: 1f54c379950a7c24aa61350b645bb42e, type: 3}
@@ -146,6 +150,11 @@ MonoBehaviour:
   ObjectsInCollider: []
   step: 0
   creatureSize: 0
+  predatorTendency: 0
+  deathCountdown: 20
+  actualSize: 0
+  closestDistance: 0
+  closest: {fileID: 8947865182777384547}
 --- !u!58 &2622669848577909300
 CircleCollider2D:
   m_ObjectHideFlags: 0

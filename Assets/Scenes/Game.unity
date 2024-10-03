@@ -155,7 +155,7 @@ MonoBehaviour:
   uiScript: {fileID: 0}
   firstGameStart: 0
   Food: {fileID: 7545539891173908485, guid: 1f54c379950a7c24aa61350b645bb42e, type: 3}
-  spawnrate: 0.5
+  spawnrate: 0.1
   timer: 0
   variation: 12
   secondTimer: 0
