@@ -35,7 +35,6 @@ public class CreatureScript : MonoBehaviour
     public float predatorTendency;
     public float deathCountdown = 20;
     public float actualSize;
-    public float closestDistance;
     public GameObject closest;
     // Start is called before the first frame update
     void Start()
@@ -64,10 +63,6 @@ public class CreatureScript : MonoBehaviour
         {
             this.tag = "Prey";
         }
-        if (ObjectsInTrigger.Count == 0)
-        {
-            closestDistance = 10000000000;
-        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -92,17 +87,7 @@ public class CreatureScript : MonoBehaviour
         {
             if (collision.collider.gameObject.name == "FoodClone")
             {
-                if (collision.gameObject == closest)
-                {
-                    if (ObjectsInTrigger.Count != 0)
-                    {
-                        closest = ObjectsInTrigger[0];
-                    }
-                    else
-                    {
-                        closest = null;
-                    }
-                }
+                
                 Destroy(collision.gameObject);
                 score++;
             }
@@ -135,7 +120,7 @@ public class CreatureScript : MonoBehaviour
     {
         if (predator == false)
         {
-            if (collision.gameObject.name == "FoodClone")
+            if (collision.gameObject.name == "FoodClone" && collision.tag != "Destroyed")
             {
                 ObjectsInTrigger.Remove(collision.gameObject);
             }
@@ -149,10 +134,6 @@ public class CreatureScript : MonoBehaviour
             if (collision.gameObject.name == "CreatureClone")
             {
                 ObjectsInTrigger.Remove(collision.gameObject);
-                if (collision.gameObject == closest)
-                {
-                    closest = ObjectsInTrigger[0];
-                }
             }
             if (collision.gameObject.name == "FoodClone")
             {
@@ -164,14 +145,10 @@ public class CreatureScript : MonoBehaviour
     {
         if (predator == false)
         {
-            if (collision.gameObject.name == "FoodClone")
+            if (collision.gameObject.name == "FoodClone" && collision.tag != "Destroyed")
             {
                 ObjectsInTrigger.Add(collision.gameObject);
-                if (Vector2.Distance(collision.gameObject.transform.position, transform.position) < closestDistance)
-                {
-                    closestDistance = Vector2.Distance(collision.gameObject.transform.position, transform.position);
-                    closest = collision.gameObject;
-                }
+                
             }
             if (collision.gameObject.name == "CreatureClone")
             {
@@ -183,11 +160,7 @@ public class CreatureScript : MonoBehaviour
             if (collision.gameObject.name == "CreatureClone")
             {
                 ObjectsInTrigger.Add(collision.gameObject);
-                if (Vector2.Distance(collision.gameObject.transform.position, transform.position) < closestDistance)
-                {
-                    closestDistance = Vector2.Distance(collision.gameObject.transform.position, transform.position);
-                    closest = collision.gameObject;
-                }
+                
             }
             if (collision.gameObject.name == "FoodClone")
             {
@@ -200,10 +173,6 @@ public class CreatureScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ObjectsInTrigger.Count == 0)
-        {
-            closestDistance = 10000000000;
-        }
         if (dead)
         {
             deathCountdown = deathCountdown - Time.deltaTime;
@@ -231,7 +200,11 @@ public class CreatureScript : MonoBehaviour
             if (ObjectsInTrigger.Count > 0)
             {
                 step = moveTowardSpeed * Time.deltaTime;
-                transform.position = Vector2.MoveTowards(transform.position, closest.transform.position, step);
+                GameObject closestGameObject = FindClosestGameObject();
+                if (closestGameObject != null)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, FindClosestGameObject().transform.position, step);
+                }
 
             }
             //else if (ObjectsInCollider.Count > 0)
@@ -259,6 +232,7 @@ public class CreatureScript : MonoBehaviour
                 GameObject CreatureClone = Instantiate(Creature, new Vector3(UnityEngine.Random.Range(rightestPoint, leftestPoint), UnityEngine.Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
                 CreatureClone.name = "CreatureClone";
                 CreatureClone.GetComponent<CreatureScript>().predatorTendency = 1;
+                CreatureClone.GetComponent<CreatureScript>().actualSize = 0.5f; 
                 score -= 5;
             }
             if (score < 2.5f)
@@ -309,39 +283,47 @@ public class CreatureScript : MonoBehaviour
 
     }
 
-    //private GameObject FindClosestGameObject()
-    //{
-    //    closest = ObjectsInTrigger[0];
-    //    float stoDistance = 0;
-    //    closestDistance = 0;
-    //    float length = ObjectsInTrigger.Count;
-    //    for (int i = 0; i < length; i++)
-    //    {
-    //        stoDistance = Vector3.Distance(transform.position, ObjectsInTrigger[i].transform.position);
-    //        closestDistance = Vector3.Distance(transform.position, closest.transform.position);
-    //        if(stoDistance < closestDistance)
-    //        {
-    //            closest = ObjectsInTrigger[i];
-    //        }
-    //        length = ObjectsInTrigger.Count;
-    //    }
-    //    return closest;
-    //}
-    //private GameObject FindClosestCreature()
-    //{
-    //    GameObject closest = ObjectsInCollider[0];
-    //    float stoDistance = 0;
-    //    float closestDistance = 0;
-    //    foreach (GameObject go in ObjectsInCollider)
-    //    {
-    //        stoDistance = Vector3.Distance(transform.position, go.transform.position);
-    //        closestDistance = Vector3.Distance(transform.position, closest.transform.position);
-    //        if (stoDistance < closestDistance)
-    //        {
-    //            closest = go;
-    //        }
-    //    }
-    //    return closest;
-    //}
-    
+    private GameObject FindClosestGameObject()
+    {
+         
+            List<GameObject> stoList = ObjectsInTrigger;
+            if (stoList[0] != null)
+            {
+                closest = stoList[0];
+            }
+            float stoDistance = 0;
+            float closestDistance = 0;
+            foreach (GameObject go in stoList)
+            {
+                if (go != null)
+                {
+                    stoDistance = Vector3.Distance(transform.position, go.transform.position);
+                    closestDistance = Vector3.Distance(transform.position, closest.transform.position);
+                    if (stoDistance < closestDistance)
+                    {
+                        closest = go;
+                    }
+                }
+            }
+
+        
+        return closest;
+    }
+    private GameObject FindClosestCreature()
+    {
+        GameObject closest = ObjectsInCollider[0];
+        float stoDistance = 0;
+        float closestDistance = 0;
+        foreach (GameObject go in ObjectsInCollider)
+        {
+            stoDistance = Vector3.Distance(transform.position, go.transform.position);
+            closestDistance = Vector3.Distance(transform.position, closest.transform.position);
+            if (stoDistance < closestDistance)
+            {
+                closest = go;
+            }
+        }
+        return closest;
+    }
+
 }

@@ -6,7 +6,14 @@ public class FoodScript : MonoBehaviour
 {
     public GameObject food;
     public GameObject creature;
+    public bool destroyed;
+    public float destroyTimer = 5;
     // Start is called before the first frame update
+    public void OnCollisionEnter(Collision collision)
+    {
+        destroyed = true;
+        tag = "Destroyed";
+    }
     void Start()
     {
         
@@ -22,6 +29,9 @@ public class FoodScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (destroyed)
+        {
+            destroyTimer = destroyTimer - Time.deltaTime;
+        }
     }
 }

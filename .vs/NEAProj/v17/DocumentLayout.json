@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\projects\\NEAProj\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\creaturescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|c:\\projects\\neaproj\\assets\\creaturescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\creaturescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -15,7 +15,7 @@
       "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\gametimerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|c:\\projects\\neaproj\\assets\\sizesliderscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\sizesliderscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\sizesliderscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -50,8 +50,7 @@
               "RelativeToolTip": "Assets\\SizeSliderScript.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T12:55:40.086Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-01T12:55:40.086Z"
             },
             {
               "$type": "Document",
@@ -85,10 +84,9 @@
               "RelativeDocumentMoniker": "Assets\\GameTimerScript.cs",
               "ToolTip": "C:\\projects\\NEAProj\\Assets\\GameTimerScript.cs",
               "RelativeToolTip": "Assets\\GameTimerScript.cs",
-              "ViewState": "AQIAAEUAAAAAAAAAAAAiwEwAAABFAAAA",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAowEwAAABFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T14:37:58.467Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-19T14:37:58.467Z"
             },
             {
               "$type": "Document",
@@ -98,7 +96,7 @@
               "RelativeDocumentMoniker": "Assets\\FoodScript.cs",
               "ToolTip": "C:\\projects\\NEAProj\\Assets\\FoodScript.cs",
               "RelativeToolTip": "Assets\\FoodScript.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAkwBQAAAAHAAAA",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAkwA4AAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-14T12:26:32.299Z",
               "EditorCaption": ""
@@ -123,7 +121,7 @@
               "RelativeDocumentMoniker": "Assets\\CreatureScript.cs",
               "ToolTip": "C:\\projects\\NEAProj\\Assets\\CreatureScript.cs",
               "RelativeToolTip": "Assets\\CreatureScript.cs",
-              "ViewState": "AQIAAN8AAAAAAAAAAAAcwOkAAABvAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwBAABnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-22T08:19:22.631Z",
               "EditorCaption": ""
