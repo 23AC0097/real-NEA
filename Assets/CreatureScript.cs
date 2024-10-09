@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 
 public class CreatureScript : MonoBehaviour
 {
+    public bool isRunning;
     public bool dead;
     public Vector2 vector;
     public float lowestPoint;
@@ -118,55 +119,67 @@ public class CreatureScript : MonoBehaviour
     //}
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (predator == false)
+        if (isRunning == false)
         {
-            if (collision.gameObject.name == "FoodClone" && collision.tag != "Destroyed")
+            isRunning = true;
+            if (predator == false)
             {
-                ObjectsInTrigger.Remove(collision.gameObject);
+                if (collision.gameObject.name == "FoodClone" && collision.tag != "Destroyed")
+                {
+                    ObjectsInTrigger.Remove(collision.gameObject);
+                }
+                if (collision.gameObject.name == "CreatureClone")
+                {
+                    ObjectsInCollider.Remove(collision.gameObject);
+                }
             }
-            if (collision.gameObject.name == "CreatureClone")
+            else
             {
-                ObjectsInCollider.Remove(collision.gameObject);
+                if (collision.gameObject.name == "CreatureClone")
+                {
+                    ObjectsInTrigger.Remove(collision.gameObject);
+                }
+                if (collision.gameObject.name == "FoodClone")
+                {
+                    ObjectsInCollider.Remove(collision.gameObject);
+                }
             }
+            isRunning = false;
         }
-        else
-        {
-            if (collision.gameObject.name == "CreatureClone")
-            {
-                ObjectsInTrigger.Remove(collision.gameObject);
-            }
-            if (collision.gameObject.name == "FoodClone")
-            {
-                ObjectsInCollider.Remove(collision.gameObject);
-            }
-        }
+        isRunning = false;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (predator == false)
+        if (isRunning == false)
         {
-            if (collision.gameObject.name == "FoodClone" && collision.tag != "Destroyed")
+            isRunning = true;
+            if (predator == false)
             {
-                ObjectsInTrigger.Add(collision.gameObject);
-                
+                if (collision.gameObject.name == "FoodClone" && collision.tag != "Destroyed")
+                {
+                    ObjectsInTrigger.Add(collision.gameObject);
+
+                }
+                if (collision.gameObject.name == "CreatureClone")
+                {
+                    ObjectsInCollider.Add(collision.gameObject);
+                }
             }
-            if (collision.gameObject.name == "CreatureClone")
+            else
             {
-                ObjectsInCollider.Add(collision.gameObject);
+                if (collision.gameObject.name == "CreatureClone")
+                {
+                    ObjectsInTrigger.Add(collision.gameObject);
+
+                }
+                if (collision.gameObject.name == "FoodClone")
+                {
+                    ObjectsInCollider.Add(collision.gameObject);
+                }
             }
+            isRunning = false;
         }
-        else
-        {
-            if (collision.gameObject.name == "CreatureClone")
-            {
-                ObjectsInTrigger.Add(collision.gameObject);
-                
-            }
-            if (collision.gameObject.name == "FoodClone")
-            {
-                ObjectsInCollider.Add(collision.gameObject);
-            }
-        }
+        isRunning = false;
     }
 
 
@@ -199,8 +212,12 @@ public class CreatureScript : MonoBehaviour
         {
             if (ObjectsInTrigger.Count > 0)
             {
+                GameObject closestGameObject = null;
                 step = moveTowardSpeed * Time.deltaTime;
-                GameObject closestGameObject = FindClosestGameObject();
+                if (isRunning == false)
+                {
+                    closestGameObject = FindClosestGameObject();
+                }
                 if (closestGameObject != null)
                 {
                     transform.position = Vector2.MoveTowards(transform.position, FindClosestGameObject().transform.position, step);
@@ -285,7 +302,10 @@ public class CreatureScript : MonoBehaviour
 
     private GameObject FindClosestGameObject()
     {
-         
+        if (isRunning == false)
+        {
+            isRunning = true;
+
             List<GameObject> stoList = ObjectsInTrigger;
             if (stoList[0] != null)
             {
@@ -306,8 +326,14 @@ public class CreatureScript : MonoBehaviour
                 }
             }
 
-        
-        return closest;
+            isRunning = false;
+
+            return closest;
+        }
+        else
+        {
+            return null;
+        }
     }
     private GameObject FindClosestCreature()
     {
