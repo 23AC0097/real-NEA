@@ -35,6 +35,11 @@ public class CreatureSpawnerScript : MonoBehaviour
         float rightestPoint = transform.position.x - (variation * 2);
         GameObject CreatureClone = Instantiate(Creature, new Vector3(UnityEngine.Random.Range(rightestPoint, leftestPoint), UnityEngine.Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
         CreatureClone.name = "CreatureClone";
+        CreatureClone.GetComponent<CreatureScript>().actualSize = 0.25f;
+        CreatureClone.GetComponent<CreatureScript>().predatorTendency = 0;
+        CreatureClone.GetComponent<CreatureScript>().actualEyesight = 10;
+        CreatureClone.GetComponent<CreatureScript>().moveTowardSpeed = 20;
+        CreatureClone.GetComponent<CreatureScript>().score = 5;
         timer = 0;
     }
     public void SpawnRandomCreature()

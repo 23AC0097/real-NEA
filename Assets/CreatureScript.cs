@@ -7,6 +7,10 @@ using UnityEngine.UIElements;
 
 public class CreatureScript : MonoBehaviour
 {
+    public float sizeRandom;
+    public float eyeRandom;
+    public float predRandom;
+    public float speedRandom;
     public bool isRunning;
     public bool dead;
     public Vector2 vector;
@@ -24,12 +28,9 @@ public class CreatureScript : MonoBehaviour
     public Rigidbody2D myRigidBody;
     //public bool FoodInRange = false;
     public GameObject food;
-    public float randomNum1;
-    public float randomNum2;
     public float timer = 2.5f;
-    public float score = 5;
+    public float score;
     public List<GameObject> ObjectsInTrigger = new List<GameObject>();
-    public List<GameObject> ObjectsInCollider = new List<GameObject>();
     public float step;
     public float creatureSize;
     bool predator;
@@ -37,22 +38,20 @@ public class CreatureScript : MonoBehaviour
     public float deathCountdown = 20;
     public float actualSize;
     public GameObject closest;
+    public float actualEyesight;
     // Start is called before the first frame update
     void Start()
     {
-        predatorTendency = 0;
         highestPoint = variation;
         lowestPoint = -variation;
         leftestPoint = +(variation * 2);
         rightestPoint = -(variation * 2);
         Move();
-        actualSize = 0.25f;
         creatureSize = actualSize * 8;
         transform.localScale = new Vector2(actualSize,actualSize);
-        eyesight.radius = 10 + (creatureSize/2);
-        moveTowardSpeed = 20;
+        eyesight.radius = actualEyesight + (creatureSize/2);
         predator = false;
-        if (predatorTendency > 0.5)
+        if (predatorTendency > 5)
         {
             predator = true;
         }
@@ -64,35 +63,44 @@ public class CreatureScript : MonoBehaviour
         {
             this.tag = "Prey";
         }
+        closest = null;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (predator)
-        {
-            if (collision.collider.gameObject.name == "CreatureClone" && tag == "Prey")
+        
+            
+            if (predator)
             {
-                score++;
-                if (score >= 20)
+                if (collision.collider.gameObject.name == "CreatureClone" && tag == "Prey")
                 {
-                    ObjectsInTrigger.Remove(collision.collider.gameObject);
+                    score++;
+                if (isRunning == false)
+                {
+                    isRunning = true;
+                    if (score >= 20)
+                    {
+                        ObjectsInTrigger.Remove(collision.collider.gameObject);
+                    }
+                    isRunning = false;
+                }
                 }
             }
-        }
-        if (collision.collider.tag == "Predator")
-        {
-            dead = true;
-            creatureSize--;
-        }
-        //Causes destruction of food if contact is made
-        if (!predator)
-        {
-            if (collision.collider.gameObject.name == "FoodClone")
+            if (collision.collider.tag == "Predator")
             {
-                
-                Destroy(collision.gameObject);
-                score++;
+                dead = true;
+                creatureSize--;
             }
-        }
+            //Causes destruction of food if contact is made
+            if (!predator)
+            {
+                if (collision.collider.gameObject.name == "FoodClone")
+                {
+
+                    Destroy(collision.gameObject);
+                    score++;
+                }
+            }
+            
         
     }
     
@@ -128,20 +136,12 @@ public class CreatureScript : MonoBehaviour
                 {
                     ObjectsInTrigger.Remove(collision.gameObject);
                 }
-                if (collision.gameObject.name == "CreatureClone")
-                {
-                    ObjectsInCollider.Remove(collision.gameObject);
-                }
             }
             else
             {
                 if (collision.gameObject.name == "CreatureClone")
                 {
                     ObjectsInTrigger.Remove(collision.gameObject);
-                }
-                if (collision.gameObject.name == "FoodClone")
-                {
-                    ObjectsInCollider.Remove(collision.gameObject);
                 }
             }
             isRunning = false;
@@ -160,10 +160,6 @@ public class CreatureScript : MonoBehaviour
                     ObjectsInTrigger.Add(collision.gameObject);
 
                 }
-                if (collision.gameObject.name == "CreatureClone")
-                {
-                    ObjectsInCollider.Add(collision.gameObject);
-                }
             }
             else
             {
@@ -171,10 +167,6 @@ public class CreatureScript : MonoBehaviour
                 {
                     ObjectsInTrigger.Add(collision.gameObject);
 
-                }
-                if (collision.gameObject.name == "FoodClone")
-                {
-                    ObjectsInCollider.Add(collision.gameObject);
                 }
             }
             isRunning = false;
@@ -194,13 +186,9 @@ public class CreatureScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (predatorTendency > 0.5)
+        if (predatorTendency > 5)
         {
             predator = true;
-            ObjectsInTrigger.Clear();
-        }
-        if (predator)
-        {
             this.tag = "Predator";
         }
         
@@ -220,7 +208,7 @@ public class CreatureScript : MonoBehaviour
                 }
                 if (closestGameObject != null)
                 {
-                    transform.position = Vector2.MoveTowards(transform.position, FindClosestGameObject().transform.position, step);
+                    transform.position = Vector2.MoveTowards(transform.position, closestGameObject.transform.position, step);
                 }
 
             }
@@ -232,7 +220,7 @@ public class CreatureScript : MonoBehaviour
             else
             {
                 Move();
-
+                closest = null;
             }
             score -= 0.0025f;
             if (score < 0)
@@ -248,8 +236,32 @@ public class CreatureScript : MonoBehaviour
                 float rightestPoint = transform.position.x - (variation * 2);
                 GameObject CreatureClone = Instantiate(Creature, new Vector3(UnityEngine.Random.Range(rightestPoint, leftestPoint), UnityEngine.Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
                 CreatureClone.name = "CreatureClone";
-                CreatureClone.GetComponent<CreatureScript>().predatorTendency = 1;
-                CreatureClone.GetComponent<CreatureScript>().actualSize = 0.5f; 
+                sizeRandom = GetRandomMutation() / 8;
+                if ((actualSize + sizeRandom) * 8 < 2 && (actualSize + sizeRandom) * 8 > 0.1)
+                {
+                    CreatureClone.GetComponent<CreatureScript>().actualSize = actualSize + sizeRandom;
+                }
+                predRandom = GetRandomMutation();
+                if (predatorTendency + predRandom >= 0 && predatorTendency + predRandom <= 10)
+                {
+                    CreatureClone.GetComponent<CreatureScript>().predatorTendency = predatorTendency + predRandom;
+                }
+                eyeRandom = GetRandomMutation() * 4;
+                if (actualEyesight + eyeRandom >= 0 && actualEyesight + eyeRandom <= 20)
+                {
+                    CreatureClone.GetComponent<CreatureScript>().actualEyesight = actualEyesight + eyeRandom;
+                }
+                speedRandom = GetRandomMutation() * 4;
+                if (moveTowardSpeed + speedRandom >= 0 && predatorTendency + speedRandom <= 40)
+                {
+                    CreatureClone.GetComponent<CreatureScript>().moveTowardSpeed = moveTowardSpeed + speedRandom;
+                    if (CreatureClone.GetComponent<CreatureScript>().creatureSize > creatureSize)
+                    {
+                        CreatureClone.GetComponent<CreatureScript>().moveTowardSpeed -= 2;
+                    }
+                    
+                }
+                CreatureClone.GetComponent<CreatureScript>().score = 5;
                 score -= 5;
             }
             if (score < 2.5f)
@@ -305,51 +317,59 @@ public class CreatureScript : MonoBehaviour
         if (isRunning == false)
         {
             isRunning = true;
-
-            List<GameObject> stoList = ObjectsInTrigger;
-            if (stoList[0] != null)
+            if (ObjectsInTrigger[0] != null)
             {
-                closest = stoList[0];
-            }
-            float stoDistance = 0;
-            float closestDistance = 0;
-            foreach (GameObject go in stoList)
-            {
-                if (go != null)
+                closest = ObjectsInTrigger[0];
+                float stoDistance = 0;
+                float closestDistance = 0;
+                foreach (GameObject go in ObjectsInTrigger)
                 {
-                    stoDistance = Vector3.Distance(transform.position, go.transform.position);
-                    closestDistance = Vector3.Distance(transform.position, closest.transform.position);
-                    if (stoDistance < closestDistance)
+                    if (go != null)
                     {
-                        closest = go;
+                        stoDistance = Vector3.Distance(transform.position, go.transform.position);
+                        closestDistance = Vector3.Distance(transform.position, closest.transform.position);
+                        if (stoDistance < closestDistance)
+                        {
+                            closest = go;
+                        }
                     }
                 }
+
+                isRunning = false;
+
+                return closest;
             }
-
-            isRunning = false;
-
-            return closest;
+            else
+            {
+                ObjectsInTrigger.RemoveAll(GameObject => GameObject == null);
+                return null;
+            }
         }
         else
         {
             return null;
         }
     }
-    private GameObject FindClosestCreature()
+    
+    private float GetRandomMutation()
     {
-        GameObject closest = ObjectsInCollider[0];
-        float stoDistance = 0;
-        float closestDistance = 0;
-        foreach (GameObject go in ObjectsInCollider)
+        float Ran1 = Random.value;
+        if (Ran1 >= 0.5)
         {
-            stoDistance = Vector3.Distance(transform.position, go.transform.position);
-            closestDistance = Vector3.Distance(transform.position, closest.transform.position);
-            if (stoDistance < closestDistance)
+            return 0;
+        }
+        else
+        {
+            float Ran2 = Random.value;
+            if (Ran2 >= 0.5)
             {
-                closest = go;
+                return Random.Range(0.01f, 0.49f);
+            }
+            else
+            {
+                return Random.Range(0.01f, 0.49f) * -1;
             }
         }
-        return closest;
     }
 
 }

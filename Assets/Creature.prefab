@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 592407a0d28f7b642a449479def37985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRunning: 0
   dead: 0
   vector: {x: 0, y: 0}
   lowestPoint: 0
@@ -153,7 +154,6 @@ MonoBehaviour:
   predatorTendency: 0
   deathCountdown: 20
   actualSize: 0
-  closestDistance: 0
   closest: {fileID: 8947865182777384547}
 --- !u!58 &2622669848577909300
 CircleCollider2D:
@@ -189,7 +189,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 22.41
 --- !u!60 &-4369337011912229021
 PolygonCollider2D:
   m_ObjectHideFlags: 0
