@@ -5,10 +5,5 @@ using UnityEngine.UI;
 
 public class SizeSliderScript : MonoBehaviour
 {
-    public Slider sizeSlider;
-    public float value;
-    public void SizeSliderValue()
-    {
-        value = sizeSlider.value;
-    }
+    
 }

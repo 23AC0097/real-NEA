@@ -7,6 +7,10 @@ using UnityEngine.UIElements;
 
 public class CreatureScript : MonoBehaviour
 {
+    public SizeSliderScript sliderScript;
+    public GameTimerScript gameTimerScript;
+    public bool active;
+    public float timeAlive;
     public float sizeRandom;
     public float eyeRandom;
     public float predRandom;
@@ -42,6 +46,7 @@ public class CreatureScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        active = true;
         highestPoint = variation;
         lowestPoint = -variation;
         leftestPoint = +(variation * 2);
@@ -178,6 +183,10 @@ public class CreatureScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameTimerScript.gameOver)
+        {
+            active = false;
+        }
         if (dead)
         {
             deathCountdown = deathCountdown - Time.deltaTime;
@@ -196,8 +205,9 @@ public class CreatureScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (!dead)
+        if (!dead && active)
         {
+            timeAlive += Time.deltaTime;
             if (ObjectsInTrigger.Count > 0)
             {
                 GameObject closestGameObject = null;
@@ -241,7 +251,7 @@ public class CreatureScript : MonoBehaviour
                 {
                     CreatureClone.GetComponent<CreatureScript>().actualSize = actualSize + sizeRandom;
                 }
-                predRandom = GetRandomMutation();
+                predRandom = GetRandomMutation() * 2;
                 if (predatorTendency + predRandom >= 0 && predatorTendency + predRandom <= 10)
                 {
                     CreatureClone.GetComponent<CreatureScript>().predatorTendency = predatorTendency + predRandom;

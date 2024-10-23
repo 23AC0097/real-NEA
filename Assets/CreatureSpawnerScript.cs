@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CreatureSpawnerScript : MonoBehaviour
 {
+    public SizeSliderScript sizeSliderScript;
     public GameObject Creature;
-    public UIScript uiScript;
     public bool firstGameStart;
     public float spawnrate = 6;
     public float timer = 0;

@@ -64,9 +64,15 @@
     <Compile Include="Assets\PlayButtonScript.cs" />
     <Compile Include="Assets\CreatureSpawnerScript.cs" />
     <Compile Include="Assets\FoodScript.cs" />
+    <Compile Include="Assets\RestartButtonControllerScript.cs" />
+    <Compile Include="Assets\PopulateGridScript.cs" />
     <Compile Include="Assets\UIScript.cs" />
+    <Compile Include="Assets\DontDestroy.cs" />
     <Compile Include="Assets\GameTimerScript.cs" />
     <Compile Include="Assets\ButtonUIScript.cs" />
+    <Compile Include="Assets\UICanvasScript.cs" />
+    <Compile Include="Assets\SeeStatsCanvasScript.cs" />
+    <Compile Include="Assets\StatsButtonControllerScript.cs" />
     <Compile Include="Assets\CreatureScript.cs" />
     <Compile Include="Assets\FoodSpawnerScript.cs" />
   </ItemGroup>
@@ -81,6 +87,7 @@
     <None Include="Assets\Pixelify_Sans\OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\test.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />

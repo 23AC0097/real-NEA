@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GameTimerScript : MonoBehaviour
 {
+    public GameObject UIEndGame;
     public List<GameObject> creatures;
+    public List <GameObject> endCreatures;
     public List<GameObject> food;
     public bool gameOver = false;
     public float overallGameTimer = 60;
@@ -40,7 +42,10 @@ public class GameTimerScript : MonoBehaviour
     {
         if (gameOver)
         {
-            Destroy(collision.gameObject);
+            if (collision.gameObject.name != "CreatureClone")
+            {
+                Destroy(collision.gameObject);
+            }
         }
         
     }
@@ -74,8 +79,12 @@ public class GameTimerScript : MonoBehaviour
         }
         if (gameOver)
         {
-            gameObject.GetComponent<SpriteRenderer>().enabled = true;
-            
+            endCreatures = creatures;
+            foreach (GameObject go in creatures)
+            {
+                go.GetComponent<CreatureScript>().active = false;
+            }
+            UIEndGame.SetActive(true);
         }
     }
 }
