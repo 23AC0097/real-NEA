@@ -46,6 +46,7 @@ public class CreatureScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        moveTowardSpeed -= (actualSize * 4);
         active = true;
         highestPoint = variation;
         lowestPoint = -variation;
@@ -56,7 +57,7 @@ public class CreatureScript : MonoBehaviour
         transform.localScale = new Vector2(actualSize,actualSize);
         eyesight.radius = actualEyesight + (creatureSize/2);
         predator = false;
-        if (predatorTendency > 5)
+        if (predatorTendency > 0.5)
         {
             predator = true;
         }
@@ -76,7 +77,7 @@ public class CreatureScript : MonoBehaviour
             
             if (predator)
             {
-                if (collision.collider.gameObject.name == "CreatureClone" && tag == "Prey")
+                if (collision.collider.gameObject.name == "CreatureClone" && tag == "Prey" && collision.collider.GetComponent<CreatureScript>().actualSize <= actualSize)
                 {
                     score++;
                 if (isRunning == false)
@@ -90,7 +91,7 @@ public class CreatureScript : MonoBehaviour
                 }
                 }
             }
-            if (collision.collider.tag == "Predator")
+            if (collision.collider.tag == "Predator" && tag == "prey" && actualSize <= collision.collider.GetComponent<CreatureScript>().actualSize)
             {
                 dead = true;
                 creatureSize--;
@@ -144,7 +145,7 @@ public class CreatureScript : MonoBehaviour
             }
             else
             {
-                if (collision.gameObject.name == "CreatureClone")
+                if (collision.gameObject.name == "CreatureClone" && tag == "prey" && actualSize >= collision.GetComponent<CreatureScript>().actualSize)
                 {
                     ObjectsInTrigger.Remove(collision.gameObject);
                 }
@@ -168,7 +169,7 @@ public class CreatureScript : MonoBehaviour
             }
             else
             {
-                if (collision.gameObject.name == "CreatureClone")
+                if (collision.gameObject.name == "CreatureClone" && tag == "prey" && actualSize >= collision.GetComponent<CreatureScript>().actualSize)
                 {
                     ObjectsInTrigger.Add(collision.gameObject);
 
@@ -232,12 +233,12 @@ public class CreatureScript : MonoBehaviour
                 Move();
                 closest = null;
             }
-            score -= 0.0025f;
+            score -= 0.005f;
             if (score < 0)
             {
                 Destroy(gameObject);
             }
-            if (reproTimer > 15 && score > 10)
+            if (reproTimer > 10 && score > 5)
             {
                 reproTimer = 0;
                 highestPoint = transform.position.y + variation;
@@ -251,7 +252,7 @@ public class CreatureScript : MonoBehaviour
                 {
                     CreatureClone.GetComponent<CreatureScript>().actualSize = actualSize + sizeRandom;
                 }
-                predRandom = GetRandomMutation() * 2;
+                predRandom = GetRandomMutation();
                 if (predatorTendency + predRandom >= 0 && predatorTendency + predRandom <= 10)
                 {
                     CreatureClone.GetComponent<CreatureScript>().predatorTendency = predatorTendency + predRandom;
@@ -272,17 +273,17 @@ public class CreatureScript : MonoBehaviour
                     
                 }
                 CreatureClone.GetComponent<CreatureScript>().score = 5;
-                score -= 5;
+                score -= 2;
             }
-            if (score < 2.5f)
+            if (score < 1.5f)
             {
                 spriteRenderer.color = new Color32(88, 54, 54, 255);
             }
-            else if (score >= 10)
+            else if (score >= 5)
             {
                 spriteRenderer.color = new Color32(255, 227, 227, 255);
             }
-            else if (score < 10 && score >= 2.5f)
+            else if (score < 5 && score >= 1.5f)
             {
                 spriteRenderer.color = new Color32(180, 109, 109, 255);
             }
