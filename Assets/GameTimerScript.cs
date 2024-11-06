@@ -5,12 +5,14 @@ using UnityEngine;
 public class GameTimerScript : MonoBehaviour
 {
     public GameObject UIEndGame;
+    public CreatureDataHandlerScript CreatureDataHandlerScript;
     public List<GameObject> creatures;
     public List <GameObject> endCreatures;
     public List<GameObject> food;
     public bool gameOver = false;
     public float overallGameTimer = 60;
     public float secondTimer = 0;
+    public bool gameOverHappened = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,14 @@ public class GameTimerScript : MonoBehaviour
     {
         if (collision.gameObject.name == "CreatureClone")
         {
-            creatures.Add(collision.gameObject);
+            if (collision.gameObject.GetComponent<CreatureScript>().detected == false)
+            {
+                creatures.Add(collision.gameObject);
+                CreatureDataHandlerScript.Save(collision.gameObject.GetComponent<CreatureScript>().creatureSize, collision.gameObject.GetComponent<CreatureScript>().moveTowardSpeed, collision.gameObject.GetComponent<CreatureScript>().eyesight.radius, collision.gameObject.GetComponent<CreatureScript>().predatorTendency, collision.gameObject.GetComponent<CreatureScript>().TimeSpawned);
+                Debug.Log("Creature Added To List");
+                collision.gameObject.GetComponent<CreatureScript>().detected = true;
+            }
+            
         }
         if (collision.gameObject.name == "FoodClone")
         {
@@ -84,6 +93,11 @@ public class GameTimerScript : MonoBehaviour
             foreach (GameObject go in creatures)
             {
                 go.GetComponent<CreatureScript>().active = false;
+            }
+            if (gameOverHappened == false)
+            {
+                CreatureDataHandlerScript.finalSave();
+                gameOverHappened = true;
             }
             UIEndGame.SetActive(true);
         }

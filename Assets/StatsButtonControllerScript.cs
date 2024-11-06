@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class StatsButtonControllerScript : MonoBehaviour
 {
-    public GameObject seeStatsCanvas;
+    public GameObject graphCanvas;
     public void StatsButton()
     {
-        seeStatsCanvas.SetActive(true);
+        graphCanvas.SetActive(true);
         gameObject.SetActive(false);
     }
 }

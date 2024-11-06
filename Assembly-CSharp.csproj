@@ -60,10 +60,13 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.35f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\GraphButtonsControllerScript.cs" />
     <Compile Include="Assets\SizeSliderScript.cs" />
     <Compile Include="Assets\PlayButtonScript.cs" />
     <Compile Include="Assets\CreatureSpawnerScript.cs" />
+    <Compile Include="Assets\GraphBuilderScript.cs" />
     <Compile Include="Assets\FoodScript.cs" />
+    <Compile Include="Assets\CreatureDataHandlerScript.cs" />
     <Compile Include="Assets\RestartButtonControllerScript.cs" />
     <Compile Include="Assets\PopulateGridScript.cs" />
     <Compile Include="Assets\UIScript.cs" />
@@ -72,19 +75,28 @@
     <Compile Include="Assets\ButtonUIScript.cs" />
     <Compile Include="Assets\UICanvasScript.cs" />
     <Compile Include="Assets\SeeStatsCanvasScript.cs" />
+    <Compile Include="Assets\DataManagerScript.cs" />
     <Compile Include="Assets\StatsButtonControllerScript.cs" />
     <Compile Include="Assets\CreatureScript.cs" />
     <Compile Include="Assets\FoodSpawnerScript.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\CreatureData\2024-11-05-11-02-298119.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\CreatureData\2024-11-05-11-25-081698.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\CreatureData\2024-11-05-11-13-100773.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Pixelify_Sans\README.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\CreatureData\2024-11-02-17-12-196848.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\DataManagerThing.txt" />
     <None Include="Assets\Pixelify_Sans\OFL.txt" />
+    <None Include="Assets\CreatureData\2024-11-05-11-19-259769.txt" />
+    <None Include="Assets\CreatureData\2024-11-05-11-36-477448.txt" />
+    <None Include="Assets\CreatureData\2024-11-05-11-16-302186.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\test.txt" />
@@ -95,7 +107,10 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\CreatureData\2024-11-05-11-57-071827.txt" />
+    <None Include="Assets\CreatureData\2024-11-05-11-22-391325.txt" />
     <None Include="Assets\NewUSS.uss" />
+    <None Include="Assets\CreatureData\2024-11-05-13-29-234397.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
@@ -444,8 +459,8 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Mono.Data.Sqlite">
-      <HintPath>Assets\Plugins\Mono.Data.Sqlite.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">

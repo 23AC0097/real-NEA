@@ -75,6 +75,7 @@ public class CreatureSpawnerScript : MonoBehaviour
     }
     public void SpawnPredator()
     {
+        Debug.Log("Creature Spawned");
         float highestPoint = transform.position.y + variation;
         float lowestPoint = transform.position.y - variation;
         float leftestPoint = transform.position.x + (variation * 2);

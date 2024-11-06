@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class CreatureScript : MonoBehaviour
 {
-    public SizeSliderScript sliderScript;
+    public bool detected = true;
     public GameTimerScript gameTimerScript;
     public bool active;
     public float timeAlive;
@@ -23,6 +23,7 @@ public class CreatureScript : MonoBehaviour
     public float leftestPoint;
     public float rightestPoint;
     public SpriteRenderer spriteRenderer;
+    public Sprite newSprite;
     public CircleCollider2D eyesight;
     public GameObject Creature;
     public float reproTimer;
@@ -43,9 +44,13 @@ public class CreatureScript : MonoBehaviour
     public float actualSize;
     public GameObject closest;
     public float actualEyesight;
+    public float TimeSpawned;
     // Start is called before the first frame update
     void Start()
     {
+        detected = true;
+        //Sets starting creature values based on the values pased in from parent creature
+        TimeSpawned = Time.time; //Keeps track of the time spawned for graphs
         moveTowardSpeed -= (actualSize * 4);
         active = true;
         highestPoint = variation;
@@ -57,6 +62,7 @@ public class CreatureScript : MonoBehaviour
         transform.localScale = new Vector2(actualSize,actualSize);
         eyesight.radius = actualEyesight + (creatureSize/2);
         predator = false;
+        //Sets predator status and changes features accordingly
         if (predatorTendency > 0.5)
         {
             predator = true;
@@ -64,20 +70,23 @@ public class CreatureScript : MonoBehaviour
         if (predator)
         {
             this.tag = "Predator";
+            spriteRenderer.sprite = newSprite;
         }
         else
         {
             this.tag = "Prey";
         }
+        
         closest = null;
+        detected = false;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         
-            
+            // Actions to complete when the creature collides with anything, incuding eating food or killing another creature.
             if (predator)
             {
-                if (collision.collider.gameObject.name == "CreatureClone" && tag == "Prey" && collision.collider.GetComponent<CreatureScript>().actualSize <= actualSize)
+                if (collision.collider.gameObject.name == "CreatureClone" && collision.collider.gameObject.tag == "Prey" && collision.collider.GetComponent<CreatureScript>().actualSize <= actualSize)
                 {
                     score++;
                 if (isRunning == false)
@@ -91,7 +100,7 @@ public class CreatureScript : MonoBehaviour
                 }
                 }
             }
-            if (collision.collider.tag == "Predator" && tag == "prey" && actualSize <= collision.collider.GetComponent<CreatureScript>().actualSize)
+            if (collision.collider.tag == "Predator" && tag == "Prey" && actualSize <= collision.collider.GetComponent<CreatureScript>().actualSize)
             {
                 dead = true;
                 creatureSize--;
@@ -120,17 +129,7 @@ public class CreatureScript : MonoBehaviour
         }
 
     }
-    //private void OnTriggerStay2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.name == "FoodClone")
-    //    {
-    //        FoodInRange = true;
-    //    }
-    //    else
-    //    {
-    //        FoodInRange = false;
-    //    }
-    //}
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (isRunning == false)
