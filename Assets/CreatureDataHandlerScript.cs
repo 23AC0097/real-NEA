@@ -62,8 +62,6 @@ public class CreatureDataHandlerScript : MonoBehaviour
             }
             myList = JsonConvert.DeserializeObject<ListOfCreaturesToSave>(creatureLines);
         }
-        Debug.Log(myList.list.First().SaveSpeed);
-        Debug.Log(myList.ghuh);
         return myList.list;
     }
 }

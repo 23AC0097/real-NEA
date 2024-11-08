@@ -44,7 +44,7 @@ public class GraphBuilderScript : MonoBehaviour
     {
         foreach (GameObject dot in dots)
         {
-            Destroy(dot, 0.5f);
+            Destroy(dot, 0.1f);
         }
     }
     private void CreateDot(Vector2 anchorPos)

@@ -78,6 +78,7 @@
     <Compile Include="Assets\DataManagerScript.cs" />
     <Compile Include="Assets\StatsButtonControllerScript.cs" />
     <Compile Include="Assets\CreatureScript.cs" />
+    <Compile Include="Assets\FileScrollPopulatorScript.cs" />
     <Compile Include="Assets\FoodSpawnerScript.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,9 +88,12 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\CreatureData\2024-11-05-11-13-100773.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\CreatureData\2024-11-07-16-08-069603.txt" />
     <None Include="Assets\Pixelify_Sans\README.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\CreatureData\2024-11-08-09-16-320666.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\CreatureData\2024-11-08-09-42-280058.txt" />
     <None Include="Assets\CreatureData\2024-11-02-17-12-196848.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\DataManagerThing.txt" />
@@ -111,7 +115,9 @@
     <None Include="Assets\CreatureData\2024-11-05-11-22-391325.txt" />
     <None Include="Assets\NewUSS.uss" />
     <None Include="Assets\CreatureData\2024-11-05-13-29-234397.txt" />
+    <None Include="Assets\CreatureData\2024-11-08-09-13-092076.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\CreatureData\2024-11-08-09-26-376085.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
