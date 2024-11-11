@@ -65,7 +65,7 @@ public class GameTimerScript : MonoBehaviour
     {
         if (creatures.Count == 0)
         {
-            if (overallGameTimer < 118)
+            if (overallGameTimer < saveGameTimer - 2)
             {
                 gameOver = true;
             }

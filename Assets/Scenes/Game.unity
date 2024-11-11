@@ -5131,7 +5131,7 @@ PrefabInstance:
       objectReference: {fileID: 436594614}
     - target: {fileID: 5343486386551457711, guid: 944db35eeb2d3fa4d9ccd5931acf1320, type: 3}
       propertyPath: overallGameTimer
-      value: 60
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 5343486386551457711, guid: 944db35eeb2d3fa4d9ccd5931acf1320, type: 3}
       propertyPath: CreatureDataHandlerScript

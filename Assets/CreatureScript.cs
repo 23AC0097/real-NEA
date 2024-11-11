@@ -63,7 +63,7 @@ public class CreatureScript : MonoBehaviour
         eyesight.radius = actualEyesight + (creatureSize/2);
         predator = false;
         //Sets predator status and changes features accordingly
-        if (predatorTendency > 0.5)
+        if (predatorTendency > 0.75)
         {
             predator = true;
         }
