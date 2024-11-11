@@ -11,11 +11,13 @@ public class GameTimerScript : MonoBehaviour
     public List<GameObject> food;
     public bool gameOver = false;
     public float overallGameTimer = 60;
+    public float saveGameTimer;
     public float secondTimer = 0;
     public bool gameOverHappened = false;
     // Start is called before the first frame update
     void Start()
     {
+        saveGameTimer = overallGameTimer;
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -71,7 +73,7 @@ public class GameTimerScript : MonoBehaviour
             
             
         }
-        if (overallGameTimer < 0)
+        if (overallGameTimer < 2)
         {
             gameOver = true;
         }

@@ -24,7 +24,7 @@ public class ButtonUIScript : MonoBehaviour
             sw.WriteLine(sizeSlider.value);
             sw.WriteLine(speedSlider.value);
             sw.WriteLine(eyesightSlider.value);
-            sw.WriteLine(foodSpawnRateSlider.value);
+            sw.WriteLine(1 - foodSpawnRateSlider.value);
             sw.WriteLine(numOfPredatorsSlider.value);
             sw.WriteLine(numOfPreySlider.value);
         }

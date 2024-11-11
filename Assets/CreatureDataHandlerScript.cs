@@ -13,6 +13,7 @@ public class CreatureDataHandlerScript : MonoBehaviour
 {
     public string SessionNum;
     public List<SaveCreature> CreaturesToSave = new List<SaveCreature>();
+    public GameTimerScript gameTimerScript;
 
     public class SaveCreature
     {
@@ -25,6 +26,7 @@ public class CreatureDataHandlerScript : MonoBehaviour
     public class ListOfCreaturesToSave
     {
         public List<SaveCreature> list;
+        public float gameTime;
         public string ghuh = "jckdrbvkj"; //Checks the thingy outputs everthing.
     }
     public void Save(float Size, float Speed, float Eyesight, float PredTend, float TimeSpawned)
@@ -62,6 +64,8 @@ public class CreatureDataHandlerScript : MonoBehaviour
             }
             myList = JsonConvert.DeserializeObject<ListOfCreaturesToSave>(creatureLines);
         }
+
+
         return myList.list;
     }
 }
