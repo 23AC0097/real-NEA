@@ -6,11 +6,12 @@ public class GameTimerScript : MonoBehaviour
 {
     public GameObject UIEndGame;
     public CreatureDataHandlerScript CreatureDataHandlerScript;
+    public GameObject quitButton;
     public List<GameObject> creatures;
     public List <GameObject> endCreatures;
     public List<GameObject> food;
     public bool gameOver = false;
-    public float overallGameTimer = 60;
+    public float overallGameTimer;
     public float saveGameTimer;
     public float secondTimer = 0;
     public bool gameOverHappened = false;
@@ -27,7 +28,7 @@ public class GameTimerScript : MonoBehaviour
             if (collision.gameObject.GetComponent<CreatureScript>().detected == false)
             {
                 creatures.Add(collision.gameObject);
-                CreatureDataHandlerScript.Save(collision.gameObject.GetComponent<CreatureScript>().creatureSize, collision.gameObject.GetComponent<CreatureScript>().moveTowardSpeed, collision.gameObject.GetComponent<CreatureScript>().eyesight.radius, collision.gameObject.GetComponent<CreatureScript>().predatorTendency, collision.gameObject.GetComponent<CreatureScript>().TimeSpawned);
+                CreatureDataHandlerScript.Save(collision.gameObject.GetComponent<CreatureScript>().creatureSize, collision.gameObject.GetComponent<CreatureScript>().moveTowardSpeed, collision.gameObject.GetComponent<CreatureScript>().eyesight.radius, collision.gameObject.GetComponent<CreatureScript>().predatorTendency, saveGameTimer - (overallGameTimer + secondTimer));
                 Debug.Log("Creature Added To List");
                 collision.gameObject.GetComponent<CreatureScript>().detected = true;
             }
@@ -91,7 +92,6 @@ public class GameTimerScript : MonoBehaviour
         }
         if (gameOver)
         {
-            endCreatures = creatures;
             foreach (GameObject go in creatures)
             {
                 go.GetComponent<CreatureScript>().active = false;
@@ -102,6 +102,7 @@ public class GameTimerScript : MonoBehaviour
                 gameOverHappened = true;
             }
             UIEndGame.SetActive(true);
+            quitButton.SetActive(false);
         }
     }
 }

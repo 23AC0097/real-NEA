@@ -3,15 +3,23 @@
   "WorkspaceRootPath": "C:\\projects\\NEAProj\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|c:\\projects\\neaproj\\assets\\gametimerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\gametimerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\buttonuiscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\buttonuiscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\restartbuttoncontrollerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\restartbuttoncontrollerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\creaturescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\creaturescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\gametimerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\gametimerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|c:\\projects\\neaproj\\assets\\graphbuilderscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\graphbuilderscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\graphbuilderscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -19,16 +27,12 @@
       "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\creaturedatahandlerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\uigridrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\uigridrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\filescrollpopulatorscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\filescrollpopulatorscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\buttonuiscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\buttonuiscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\uigridrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|solutionrelative:assets\\uigridrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2FA1A1CC-1ABC-897F-66F9-F31F69743F3D}|Assembly-CSharp.csproj|C:\\projects\\NEAProj\\assets\\graphbuttonscontrollerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,11 +58,48 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
+              "Title": "RestartButtonControllerScript.cs",
+              "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\RestartButtonControllerScript.cs",
+              "RelativeDocumentMoniker": "Assets\\RestartButtonControllerScript.cs",
+              "ToolTip": "C:\\projects\\NEAProj\\Assets\\RestartButtonControllerScript.cs",
+              "RelativeToolTip": "Assets\\RestartButtonControllerScript.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T15:53:36.154Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameTimerScript.cs",
+              "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\GameTimerScript.cs",
+              "RelativeDocumentMoniker": "Assets\\GameTimerScript.cs",
+              "ToolTip": "C:\\projects\\NEAProj\\Assets\\GameTimerScript.cs",
+              "RelativeToolTip": "Assets\\GameTimerScript.cs",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAowGgAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T14:38:42.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CreatureScript.cs",
+              "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\CreatureScript.cs",
+              "RelativeDocumentMoniker": "Assets\\CreatureScript.cs",
+              "ToolTip": "C:\\projects\\NEAProj\\Assets\\CreatureScript.cs",
+              "RelativeToolTip": "Assets\\CreatureScript.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgBAABlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T14:01:03.308Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "FileScrollPopulatorScript.cs",
               "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\FileScrollPopulatorScript.cs",
               "RelativeDocumentMoniker": "Assets\\FileScrollPopulatorScript.cs",
@@ -70,82 +111,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GameTimerScript.cs",
-              "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\GameTimerScript.cs",
-              "RelativeDocumentMoniker": "Assets\\GameTimerScript.cs",
-              "ToolTip": "C:\\projects\\NEAProj\\Assets\\GameTimerScript.cs",
-              "RelativeToolTip": "Assets\\GameTimerScript.cs",
-              "ViewState": "AQIAAD4AAAAAAAAAAAAgwEMAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T14:38:42.512Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CreatureScript.cs",
-              "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\CreatureScript.cs",
-              "RelativeDocumentMoniker": "Assets\\CreatureScript.cs",
-              "ToolTip": "C:\\projects\\NEAProj\\Assets\\CreatureScript.cs",
-              "RelativeToolTip": "Assets\\CreatureScript.cs",
-              "ViewState": "AQIAADoAAAAAAAAAAAAQwEEAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T14:01:03.308Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "CreatureDataHandlerScript.cs",
               "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\CreatureDataHandlerScript.cs",
               "RelativeDocumentMoniker": "Assets\\CreatureDataHandlerScript.cs",
               "ToolTip": "C:\\projects\\NEAProj\\Assets\\CreatureDataHandlerScript.cs",
               "RelativeToolTip": "Assets\\CreatureDataHandlerScript.cs",
-              "ViewState": "AQIAADQAAAAAAAAAAAAcwEEAAAAJAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAIwEEAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-02T15:37:31.545Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "GraphBuilderScript.cs",
               "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\GraphBuilderScript.cs",
               "RelativeDocumentMoniker": "Assets\\GraphBuilderScript.cs",
               "ToolTip": "C:\\projects\\NEAProj\\Assets\\GraphBuilderScript.cs",
               "RelativeToolTip": "Assets\\GraphBuilderScript.cs",
-              "ViewState": "AQIAAEYAAAAAAAAAAAAawEoAAAAfAAAA",
+              "ViewState": "AQIAAEcAAAAAAAAAAAA9wEwAAABjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T15:20:34.304Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T15:20:34.304Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "ButtonUIScript.cs",
               "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\ButtonUIScript.cs",
               "RelativeDocumentMoniker": "Assets\\ButtonUIScript.cs",
               "ToolTip": "C:\\projects\\NEAProj\\Assets\\ButtonUIScript.cs",
               "RelativeToolTip": "Assets\\ButtonUIScript.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAAwBoAAAA4AAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACIAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-23T13:51:40.911Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "UIGridRenderer.cs",
               "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\UIGridRenderer.cs",
               "RelativeDocumentMoniker": "Assets\\UIGridRenderer.cs",
               "ToolTip": "C:\\projects\\NEAProj\\Assets\\UIGridRenderer.cs",
               "RelativeToolTip": "Assets\\UIGridRenderer.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAD4vxMAAAAwAAAA",
+              "ViewState": "AQIAABwAAAAAAAAAAAAMwBMAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-10T12:25:55.079Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "GraphButtonsControllerScript.cs",
               "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\GraphButtonsControllerScript.cs",
               "RelativeDocumentMoniker": "Assets\\GraphButtonsControllerScript.cs",
@@ -157,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "StatsButtonControllerScript.cs",
               "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\StatsButtonControllerScript.cs",
               "RelativeDocumentMoniker": "Assets\\StatsButtonControllerScript.cs",
@@ -169,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "CreatureSpawnerScript.cs",
               "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\CreatureSpawnerScript.cs",
               "RelativeDocumentMoniker": "Assets\\CreatureSpawnerScript.cs",
@@ -181,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "UICanvasScript.cs",
               "DocumentMoniker": "C:\\projects\\NEAProj\\Assets\\UICanvasScript.cs",
               "RelativeDocumentMoniker": "Assets\\UICanvasScript.cs",

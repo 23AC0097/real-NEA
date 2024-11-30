@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Build.Reporting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -50,7 +49,7 @@ public class CreatureScript : MonoBehaviour
     {
         detected = true;
         //Sets starting creature values based on the values pased in from parent creature
-        TimeSpawned = Time.time; //Keeps track of the time spawned for graphs
+         //Keeps track of the time spawned for graphs
         moveTowardSpeed -= (actualSize * 4);
         active = true;
         highestPoint = variation;
@@ -183,110 +182,109 @@ public class CreatureScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameTimerScript.gameOver)
+        if (active)
         {
-            active = false;
-        }
-        if (dead)
-        {
-            deathCountdown = deathCountdown - Time.deltaTime;
-        }
-        if (deathCountdown <= 0)
-        {
-            Destroy(gameObject);
-        }
-        if (predatorTendency > 5)
-        {
-            predator = true;
-            this.tag = "Predator";
-        }
-        
-        if (creatureSize <= 0)
-        {
-            Destroy(gameObject);
-        }
-        if (!dead && active)
-        {
-            timeAlive += Time.deltaTime;
-            if (ObjectsInTrigger.Count > 0)
+            if (dead)
             {
-                GameObject closestGameObject = null;
-                step = moveTowardSpeed * Time.deltaTime;
-                if (isRunning == false)
-                {
-                    closestGameObject = FindClosestGameObject();
-                }
-                if (closestGameObject != null)
-                {
-                    transform.position = Vector2.MoveTowards(transform.position, closestGameObject.transform.position, step);
-                }
-
+                deathCountdown = deathCountdown - Time.deltaTime;
             }
-            //else if (ObjectsInCollider.Count > 0)
-            //{
-            //    step = moveTowardSpeed * Time.deltaTime;
-            //    transform.position = Vector2.MoveTowards(transform.position, FindClosestCreature().transform.position, step * -1);
-            //}
-            else
-            {
-                Move();
-                closest = null;
-            }
-            score -= 0.005f;
-            if (score < 0)
+            if (deathCountdown <= 0)
             {
                 Destroy(gameObject);
             }
-            if (reproTimer > 10 && score > 5)
+            if (predatorTendency > 5)
             {
-                reproTimer = 0;
-                highestPoint = transform.position.y + variation;
-                lowestPoint = transform.position.y - variation;
-                leftestPoint = transform.position.x + (variation * 2);
-                float rightestPoint = transform.position.x - (variation * 2);
-                GameObject CreatureClone = Instantiate(Creature, new Vector3(UnityEngine.Random.Range(rightestPoint, leftestPoint), UnityEngine.Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
-                CreatureClone.name = "CreatureClone";
-                sizeRandom = GetRandomMutation() / 8;
-                if ((actualSize + sizeRandom) * 8 < 2 && (actualSize + sizeRandom) * 8 > 0.1)
+                predator = true;
+                this.tag = "Predator";
+            }
+
+            if (creatureSize <= 0)
+            {
+                Destroy(gameObject);
+            }
+            if (!dead && active)
+            {
+                timeAlive += Time.deltaTime;
+                if (ObjectsInTrigger.Count > 0)
                 {
-                    CreatureClone.GetComponent<CreatureScript>().actualSize = actualSize + sizeRandom;
-                }
-                predRandom = GetRandomMutation();
-                if (predatorTendency + predRandom >= 0 && predatorTendency + predRandom <= 10)
-                {
-                    CreatureClone.GetComponent<CreatureScript>().predatorTendency = predatorTendency + predRandom;
-                }
-                eyeRandom = GetRandomMutation() * 4;
-                if (actualEyesight + eyeRandom >= 0 && actualEyesight + eyeRandom <= 20)
-                {
-                    CreatureClone.GetComponent<CreatureScript>().actualEyesight = actualEyesight + eyeRandom;
-                }
-                speedRandom = GetRandomMutation() * 4;
-                if (moveTowardSpeed + speedRandom >= 0 && predatorTendency + speedRandom <= 40)
-                {
-                    CreatureClone.GetComponent<CreatureScript>().moveTowardSpeed = moveTowardSpeed + speedRandom;
-                    if (CreatureClone.GetComponent<CreatureScript>().creatureSize > creatureSize)
+                    GameObject closestGameObject = null;
+                    step = moveTowardSpeed * Time.deltaTime;
+                    if (isRunning == false)
                     {
-                        CreatureClone.GetComponent<CreatureScript>().moveTowardSpeed -= 2;
+                        closestGameObject = FindClosestGameObject();
                     }
-                    
+                    if (closestGameObject != null)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, closestGameObject.transform.position, step);
+                    }
+
                 }
-                CreatureClone.GetComponent<CreatureScript>().score = 5;
-                score -= 2;
+                //else if (ObjectsInCollider.Count > 0)
+                //{
+                //    step = moveTowardSpeed * Time.deltaTime;
+                //    transform.position = Vector2.MoveTowards(transform.position, FindClosestCreature().transform.position, step * -1);
+                //}
+                else
+                {
+                    Move();
+                    closest = null;
+                }
+                score -= 0.0025f;
+                if (score < 0)
+                {
+                    Destroy(gameObject);
+                }
+                if (reproTimer > 10 && score > 5)
+                {
+                    reproTimer = 0;
+                    highestPoint = transform.position.y + variation;
+                    lowestPoint = transform.position.y - variation;
+                    leftestPoint = transform.position.x + (variation * 2);
+                    float rightestPoint = transform.position.x - (variation * 2);
+                    GameObject CreatureClone = Instantiate(Creature, new Vector3(UnityEngine.Random.Range(rightestPoint, leftestPoint), UnityEngine.Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+                    CreatureClone.name = "CreatureClone";
+                    sizeRandom = GetRandomMutation() / 8;
+                    if ((actualSize + sizeRandom) * 8 < 2 && (actualSize + sizeRandom) * 8 > 0.1)
+                    {
+                        CreatureClone.GetComponent<CreatureScript>().actualSize = actualSize + sizeRandom;
+                    }
+                    predRandom = GetRandomMutation();
+                    if (predatorTendency + predRandom >= 0 && predatorTendency + predRandom <= 10)
+                    {
+                        CreatureClone.GetComponent<CreatureScript>().predatorTendency = predatorTendency + predRandom;
+                    }
+                    eyeRandom = GetRandomMutation() * 4;
+                    if (actualEyesight + eyeRandom >= 0 && actualEyesight + eyeRandom <= 20)
+                    {
+                        CreatureClone.GetComponent<CreatureScript>().actualEyesight = actualEyesight + eyeRandom;
+                    }
+                    speedRandom = GetRandomMutation() * 4;
+                    if (moveTowardSpeed + speedRandom >= 0 && moveTowardSpeed + speedRandom <= 40)
+                    {
+                        CreatureClone.GetComponent<CreatureScript>().moveTowardSpeed = moveTowardSpeed + speedRandom;
+                        if (CreatureClone.GetComponent<CreatureScript>().creatureSize > creatureSize)
+                        {
+                            CreatureClone.GetComponent<CreatureScript>().moveTowardSpeed = moveTowardSpeed - 2;
+                        }
+
+                    }
+                    CreatureClone.GetComponent<CreatureScript>().score = 5;
+                    score -= 2;
+                }
+                if (score < 1.5f)
+                {
+                    spriteRenderer.color = new Color32(88, 54, 54, 255);
+                }
+                else if (score >= 5)
+                {
+                    spriteRenderer.color = new Color32(255, 227, 227, 255);
+                }
+                else if (score < 5 && score >= 1.5f)
+                {
+                    spriteRenderer.color = new Color32(180, 109, 109, 255);
+                }
+                reproTimer += Time.deltaTime;
             }
-            if (score < 1.5f)
-            {
-                spriteRenderer.color = new Color32(88, 54, 54, 255);
-            }
-            else if (score >= 5)
-            {
-                spriteRenderer.color = new Color32(255, 227, 227, 255);
-            }
-            else if (score < 5 && score >= 1.5f)
-            {
-                spriteRenderer.color = new Color32(180, 109, 109, 255);
-            }
-            reproTimer += Time.deltaTime;
         }
     }
     private Vector2 FindRandomPoint()

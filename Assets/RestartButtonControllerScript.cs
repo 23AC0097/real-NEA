@@ -10,4 +10,8 @@ public class RestartButtonControllerScript : MonoBehaviour
     {
         SceneManager.LoadScene(mainmenu);
     }
+    public void QuitButton()
+    {
+        Application.Quit();
+    }
 }

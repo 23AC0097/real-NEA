@@ -30,5 +30,8 @@ public class ButtonUIScript : MonoBehaviour
         }
         SceneManager.LoadScene(game);
     }
-    
+    public void QuitButton()
+    {
+        Application.Quit();
+    }
 }
