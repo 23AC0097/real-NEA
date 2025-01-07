@@ -5215,6 +5215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizeSliderScript: {fileID: 7418822925919642191, guid: 6dea882b0892b7845a7e9110ca3ea700, type: 3}
   foodSpawner: {fileID: 242095834}
+  GameTimerScript: {fileID: 436594616}
   Creature: {fileID: 8947865182777384547, guid: 1621dc91efe34ac42b1d0154be3e658a, type: 3}
   firstGameStart: 0
   spawnrate: 6
@@ -5226,7 +5227,7 @@ MonoBehaviour:
   speed: 0
   eyesight: 0
   foodSpawn: 0
-  numPred: 0
+  gameLength: 0
   numPrey: 0
 --- !u!4 &2028232395
 Transform:

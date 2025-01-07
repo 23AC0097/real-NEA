@@ -8,6 +8,7 @@ public class CreatureSpawnerScript : MonoBehaviour
 {
     public SizeSliderScript sizeSliderScript;
     public FoodSpawnerScript foodSpawner;
+    public GameTimerScript GameTimerScript;
     public GameObject Creature;
     public bool firstGameStart;
     public float spawnrate = 6;
@@ -21,7 +22,7 @@ public class CreatureSpawnerScript : MonoBehaviour
     public float speed = 0;
     public float eyesight = 0;
     public float foodSpawn = 0;
-    public float numPred = 0;
+    public float gameLength = 0;
     public float numPrey = 0;
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,7 @@ public class CreatureSpawnerScript : MonoBehaviour
         stats[1] = eyesight;
         stats[2] = speed;
         stats[3] = foodSpawn;
-        stats[4] = numPred;
+        stats[4] = gameLength;
         stats[5] = numPrey;
         string[] statsStrings;
         using (StreamReader sr = new StreamReader(path))
@@ -39,18 +40,15 @@ public class CreatureSpawnerScript : MonoBehaviour
             for (int i = 0; i < stats.Length; i++)
             {
                 stats[i] = float.Parse(statsStrings[i]);
-                Debug.Log(stats[i]);
             }
         }
-        for (int i = 1;i <= stats[4]; i++)
-        {
-            SpawnPredator();
-        }
+        
         for (int i = 1; i <= stats[5]; i++)
         {
             SpawnCreature();
         }
-        foodSpawner.spawnrate = stats[3];   
+        foodSpawner.spawnrate = stats[3];  
+        GameTimerScript.overallGameTimer = stats[4] * 60;
     }
 
     // Update is called once per frame
@@ -75,7 +73,6 @@ public class CreatureSpawnerScript : MonoBehaviour
     }
     public void SpawnPredator()
     {
-        Debug.Log("Creature Spawned");
         float highestPoint = transform.position.y + variation;
         float lowestPoint = transform.position.y - variation;
         float leftestPoint = transform.position.x + (variation * 2);

@@ -28,7 +28,7 @@ public class GraphBuilderScript : Graphic
     {
         foreach (CreatureDataHandlerScript.SaveCreature saveObject in loadedCreatures)
         {
-            CreateDot(new Vector2(0, saveObject.SaveSize * 100), saveObject);
+            CreateDot(new Vector2(0, saveObject.SaveSize * 20), saveObject);
 
         }
     }
@@ -74,9 +74,7 @@ public class GraphBuilderScript : Graphic
         width = graphContainer.rect.width;
         height = graphContainer.rect.height;
         float timePos = saveObject.SaveTimeSpawned / gameTimerScript.saveGameTimer;
-        Debug.Log(saveObject.SaveTimeSpawned + " " + gameTimerScript.saveGameTimer + " " + width); 
         timePos = timePos * width;
-        Debug.Log(timePos);
         anchorPos.x = timePos;
         GameObject dot = new GameObject("dot", typeof(Image));
         dots.Add(dot);

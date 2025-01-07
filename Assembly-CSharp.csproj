@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\CreatureData\2024-11-05-11-02-298119.txt" />
+    <None Include="Assets\CreatureData\2024-12-28-12-13-195669.txt" />
     <None Include="Assets\CreatureData\2024-11-11-21-17-327322.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\CreatureData\2024-11-11-21-28-321413.txt" />
@@ -92,6 +93,7 @@
     <None Include="Assets\CreatureData\2024-11-12-13-20-404925.txt" />
     <None Include="Assets\CreatureData\2024-11-09-14-40-346832.txt" />
     <None Include="Assets\CreatureData\2024-11-15-09-38-475620.txt" />
+    <None Include="Assets\CreatureData\2024-11-30-14-54-528238.txt" />
     <None Include="Assets\CreatureData\2024-11-15-09-12-171018.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\CreatureData\2024-11-11-21-02-130764.txt" />
@@ -101,6 +103,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\CreatureData\2024-11-15-09-09-472413.txt" />
     <None Include="Assets\CreatureData\2024-11-07-16-08-069603.txt" />
+    <None Include="Assets\CreatureData\2024-11-30-14-15-038000.txt" />
     <None Include="Assets\CreatureData\2024-11-11-21-35-426924.txt" />
     <None Include="Assets\CreatureData\2024-11-08-10-06-373297.txt" />
     <None Include="Assets\CreatureData\2024-11-08-10-10-263804.txt" />
@@ -117,6 +120,7 @@
     <None Include="Assets\CreatureData\2024-11-11-13-19-342355.txt" />
     <None Include="Assets\CreatureData\2024-11-11-19-26-479886.txt" />
     <None Include="Assets\CreatureData\2024-11-28-16-16-009976.txt" />
+    <None Include="Assets\CreatureData\2025-01-05-12-24-440597.txt" />
     <None Include="Assets\CreatureData\2024-11-09-14-36-323977.txt" />
     <None Include="Assets\CreatureData\2024-11-11-20-53-105190.txt" />
     <None Include="Assets\CreatureData\2024-11-02-17-12-196848.txt" />
@@ -129,8 +133,10 @@
     <None Include="Assets\CreatureData\2024-11-30-13-47-375851.txt" />
     <None Include="Assets\CreatureData\2024-11-11-20-49-427794.txt" />
     <None Include="Assets\DataManagerThing.txt" />
+    <None Include="Assets\CreatureData\2025-01-04-10-02-023136.txt" />
     <None Include="Assets\CreatureData\2024-11-11-16-07-304486.txt" />
     <None Include="Assets\CreatureData\2024-11-11-13-16-375876.txt" />
+    <None Include="Assets\CreatureData\2024-11-30-14-23-086770.txt" />
     <None Include="Assets\Pixelify_Sans\OFL.txt" />
     <None Include="Assets\CreatureData\2024-11-15-09-33-196215.txt" />
     <None Include="Assets\CreatureData\2024-11-05-11-19-259769.txt" />
@@ -147,6 +153,8 @@
     <None Include="Assets\test.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\CreatureData\2024-11-30-14-08-484381.txt" />
+    <None Include="Assets\CreatureData\2025-01-05-12-18-483851.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\CreatureData\2024-11-28-16-14-145211.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
@@ -155,14 +163,19 @@
     <None Include="Assets\CreatureData\2024-11-09-14-35-401465.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\CreatureData\2024-11-17-12-14-318454.txt" />
+    <None Include="Assets\CreatureData\2025-01-04-11-02-218299.txt" />
+    <None Include="Assets\CreatureData\2024-11-30-14-46-488261.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\CreatureData\2024-11-08-10-09-121774.txt" />
     <None Include="Assets\CreatureData\2024-11-11-20-43-005606.txt" />
+    <None Include="Assets\CreatureData\2024-12-02-11-52-096331.txt" />
     <None Include="Assets\CreatureData\2024-11-28-16-07-236606.txt" />
     <None Include="Assets\CreatureData\2024-11-28-16-05-440769.txt" />
+    <None Include="Assets\CreatureData\2024-11-30-14-05-149232.txt" />
     <None Include="Assets\CreatureData\2024-11-11-21-08-384596.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\CreatureData\2024-11-05-11-57-071827.txt" />
+    <None Include="Assets\CreatureData\2024-12-28-12-15-325110.txt" />
     <None Include="Assets\CreatureData\2024-11-05-11-22-391325.txt" />
     <None Include="Assets\CreatureData\2024-11-11-19-30-007568.txt" />
     <None Include="Assets\NewUSS.uss" />
@@ -172,6 +185,7 @@
     <None Include="Assets\CreatureData\2024-11-08-09-13-092076.txt" />
     <None Include="Assets\CreatureData\2024-11-15-09-42-159439.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\CreatureData\2025-01-04-10-08-513958.txt" />
     <None Include="Assets\CreatureData\2024-11-12-13-19-504374.txt" />
     <None Include="Assets\CreatureData\2024-11-11-21-30-237315.txt" />
     <None Include="Assets\CreatureData\2024-11-11-20-32-250351.txt" />

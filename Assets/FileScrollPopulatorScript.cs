@@ -20,7 +20,6 @@ public class FileScrollPopulatorScript : MonoBehaviour
         FileInfo[] fileInfo = dirInfo.GetFiles("?.txt");
         foreach (FileInfo file in fileInfo)
         {
-            Debug.Log("Making a File Scroll Thing");
             GameObject instantiatedPanel = Instantiate(FilePanel);
             instantiatedPanel.transform.parent = rectTransform;
         }

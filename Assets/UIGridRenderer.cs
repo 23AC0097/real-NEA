@@ -18,7 +18,6 @@ public class UIGridRenderer : Graphic
     protected override void OnPopulateMesh(VertexHelper vh)
     {
         float gameTime = gameTimer.saveGameTimer;
-        Debug.Log(gameTime);
         gridSize = new Vector2Int((int)gameTime/30, (int)gameTime / 30);
         vh.Clear();
 

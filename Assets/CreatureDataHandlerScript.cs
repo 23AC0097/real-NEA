@@ -46,9 +46,7 @@ public class CreatureDataHandlerScript : MonoBehaviour
     {
         ListOfCreaturesToSave myList = new ListOfCreaturesToSave();
         myList.list = CreaturesToSave;
-        Debug.Log(CreaturesToSave.First().SaveSpeed);
         string json = JsonConvert.SerializeObject(myList);
-        Debug.Log(json);
         File.WriteAllText(@"C:\projects\NEAProj\Assets" + @"\CreatureData\" + SessionNum + ".txt", json);
         
     }

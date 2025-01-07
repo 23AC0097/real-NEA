@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameTimerScript : MonoBehaviour
 {
+    public bool done = false;
     public GameObject UIEndGame;
     public CreatureDataHandlerScript CreatureDataHandlerScript;
     public GameObject quitButton;
@@ -18,7 +19,7 @@ public class GameTimerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        saveGameTimer = overallGameTimer;
+        
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,7 +30,6 @@ public class GameTimerScript : MonoBehaviour
             {
                 creatures.Add(collision.gameObject);
                 CreatureDataHandlerScript.Save(collision.gameObject.GetComponent<CreatureScript>().creatureSize, collision.gameObject.GetComponent<CreatureScript>().moveTowardSpeed, collision.gameObject.GetComponent<CreatureScript>().eyesight.radius, collision.gameObject.GetComponent<CreatureScript>().predatorTendency, saveGameTimer - (overallGameTimer + secondTimer));
-                Debug.Log("Creature Added To List");
                 collision.gameObject.GetComponent<CreatureScript>().detected = true;
             }
             
@@ -73,6 +73,14 @@ public class GameTimerScript : MonoBehaviour
             
             
             
+        }
+        if (done == false)
+        {
+            if (Time.timeSinceLevelLoad > 0.1)
+            {
+                saveGameTimer = Mathf.RoundToInt(overallGameTimer + Time.timeSinceLevelLoad);
+                done = true;
+            }
         }
         if (overallGameTimer < 2)
         {
